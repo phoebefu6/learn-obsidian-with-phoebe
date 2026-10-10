@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 2 of 6. Luhmann's slip box as it actually was: a fixed number on every slip, branching and links without moving a card. What the record does and does not support about it, then atomic notes with claim titles, block links, embeds and templates in Obsidian.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Atomic notes and the address they keep - learn obsidian with phoebe">
+<meta property="og:description" content="Session 2 of 6. Luhmann's fixed numbers, the contested productivity claim, atomic notes with claim titles, block links and embeds.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-obsidian-with-phoebe/courses/02-atomic-notes-and-their-address.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-obsidian-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Atomic notes and the address they keep - learn obsidian with phoebe">
+<meta name="twitter:description" content="Session 2 of 6. Fixed addresses, a contested claim, atomic notes, block links and embeds.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-obsidian-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 2 · Atomic notes and the address they keep - learn obsidian with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-obsidian-with-phoebe</a> / Session 2 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Obsidian with Phoebe · Session 2 of 6</div>
+    <h1>Atomic notes and the <span class="accent">address</span> they keep</h1>
+    <p class="sub">A link is only as good as the thing it points at. Tonight we open the most famous note system in the literature, Niklas Luhmann's slip box, and read what it actually was: a fixed number on every card, so any card could be linked to and branched from without ever being moved. Then we look hard at the claim that the box made him productive, and find one self-reported case that nobody can untangle from the man. Finally we take the part that does travel, one idea per note with a title that says the idea, and split a fat interview note into three atomic insight notes that link back to the exact sentence they came from.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Core</span>
+      <span class="chip audience">Anyone whose notes pile up</span>
+      <span class="chip audience">Session 1 vault ready</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Slip box, the claim, atomic notes</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: split a fat note</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">Ines is constructed: an invented freelance user-research consultant with four active clients (Aldermoor Care, Brightwell Mutual, Dunmore District Council and Corvid Studio) and a part-time contractor, Theo. After session 1 her vault has a handful of linked notes. It also has the kind of note everyone writes: a long interview record, "2026-04-11 Brightwell interview P07", that holds three different ideas in one file. Every link to it lands on the whole interview, never on the idea the linker meant. Tonight that note gets split.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = do it in your own vault</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> One fat note split into atomic insight notes, each titled as a claim, each linking back to the precise quote it rests on through a block link, one quote embedded so it travels with the insight, and an "Insight note" template so the next one starts right. Plus an honest answer when someone tells you the slip box made Luhmann a genius: the record is one self-reported case, and the people who know it best disagree on what it shows.</p>
+    </div>
+
+    <p><strong>Neighbours on the shelf.</strong> Capturing, filing and reviewing notes in any tool is <a href="https://phoebefu6.github.io/learn-pkm-with-phoebe/">PKM ↗</a>; atomic notes, permanent addresses and linking by idea are the subject here. How to read a text and turn it into a note by recall is <a href="https://phoebefu6.github.io/learn-reading-with-phoebe/">Reading ↗</a>. General Markdown syntax is <a href="https://phoebefu6.github.io/learn-markdown-with-phoebe/">Markdown ↗</a>.</p>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers Luhmann's slip box as it actually was</span>
+      <h2>A number that never moves</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">In 1981 the sociologist Niklas Luhmann wrote a short essay, "Communicating with Slip Boxes", which he called "a piece of empirical sociology" about himself and his slip box (read at source, in Manfred Kuehn's translation). By then they had worked together for "more than twenty-six years". The archive that holds the box counts about 90,000 handwritten cards: Schmidt (2018) gives approximately 90,000, and the German academies' union says more than 90,000, kept over 40 years. Older retellings say 70,000; use "about 90,000". What made the box work was not the cards but the number written on each one.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 344" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A drawer of five slips in filing order: 57/12, then 57/12a and its sub-branch 57/12a1, then 57/12b, then 57/13. 57/12a, the branch inserted at a word in 57/12, is highlighted in amber. Below, a keyword register card lists trust: 57/12a and points into the drawer at that one place. A link arrow runs from 57/12a to a distant slip elsewhere in the box, which holds a back link. No slip is moved; every number stays the same.">
+        <defs>
+          <filter id="o2aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="52" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="o2aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#6741C4" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="o2aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o2aH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o2aL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o2aS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o2aB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o2aA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o2aN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o2aH" x="30" y="26">A FIXED NUMBER: BRANCH AND LINK WITHOUT MOVING A SLIP</text>
+
+        <g filter="url(#o2aSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="62" width="800" height="138" rx="10" transform="rotate(-0.3 440 131)" fill="#F5F1FD"/>
+          <rect x="71" y="96" width="130" height="62" rx="6" transform="rotate(-1.5 136 127)" fill="#FFFFFF"/>
+          <rect x="223" y="96" width="130" height="62" rx="6" transform="rotate(1.2 288 127)" fill="#FDF3E3" stroke="#A15C07"/>
+          <rect x="375" y="96" width="130" height="62" rx="6" transform="rotate(-0.8 440 127)" fill="#FFFFFF"/>
+          <rect x="527" y="96" width="130" height="62" rx="6" transform="rotate(1.6 592 127)" fill="#FFFFFF"/>
+          <rect x="679" y="96" width="130" height="62" rx="6" transform="rotate(-1.1 744 127)" fill="#FFFFFF"/>
+          <rect x="60" y="244" width="210" height="60" rx="8" transform="rotate(-1.4 165 274)" fill="#FFFFFF"/>
+          <rect x="600" y="244" width="210" height="60" rx="8" transform="rotate(1.3 705 274)" fill="url(#o2aHc)"/>
+          <rect x="612" y="252" width="186" height="44" rx="5" fill="#FFFFFF"/>
+          <path d="M210 240 C224 210 246 186 262 164" marker-end="url(#o2aAr)"/>
+          <path d="M330 164 C350 232 480 272 594 272" marker-end="url(#o2aAr)"/>
+          <path d="M150 238 L156 228 L162 238 Z"/>
+        </g>
+
+        <text class="o2aA" x="56" y="52">THE DRAWER, IN FILING ORDER · never re-sorted</text>
+        <text class="o2aB" x="288" y="86" text-anchor="middle">inserted at a word</text>
+        <text class="o2aL" x="136" y="124" text-anchor="middle">57/12</text>
+        <text class="o2aS" x="136" y="142" text-anchor="middle">a thought</text>
+        <text class="o2aB" x="288" y="124" text-anchor="middle">57/12a</text>
+        <text class="o2aS" x="288" y="142" text-anchor="middle">branch at a word</text>
+        <text class="o2aL" x="440" y="124" text-anchor="middle">57/12a1</text>
+        <text class="o2aS" x="440" y="142" text-anchor="middle">sub-branch</text>
+        <text class="o2aL" x="592" y="124" text-anchor="middle">57/12b</text>
+        <text class="o2aS" x="592" y="142" text-anchor="middle">second branch</text>
+        <text class="o2aL" x="744" y="124" text-anchor="middle">57/13</text>
+        <text class="o2aS" x="744" y="142" text-anchor="middle">continues 57/12</text>
+        <text class="o2aA" x="76" y="268">KEYWORD REGISTER</text>
+        <text class="o2aL" x="76" y="288">trust: 57/12a</text>
+        <text class="o2aA" x="624" y="270">A DISTANT SLIP</text>
+        <text class="o2aS" x="624" y="288">link out, back link here</text>
+
+        <text class="o2aN" x="30" y="330">57/12 to 57/13 is Luhmann's own example. The register entry and distant slip are illustrative.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the amber slip was added years later between two old ones, and nothing else had to move or be renumbered</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>A fixed place, not a topic<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Luhmann writes that he decided "against the systematic ordering in accordance with topics and sub-topics" and chose "a firm fixed place" instead. His line is worth remembering: "The fixed filing place needs no system." Every slip got a number when it was filed, and that number never changed.</p>
+        <p>The number is what made growth cheap. Slip 57/12 is continued by 57/13. If a word on 57/12 sparks a side thought, it becomes 57/12a, then 57/12b, filed right behind it; a thought on 57/12a becomes 57/12a1. Any slip can branch at any point, forever, and nothing already in the drawer is disturbed.</p>
+        <p>Because numbers never move, you can "add as many references to them as you may want", and he recorded "back links in the slips that are being linked to". With no topical order to browse, he needed a keyword register, constantly updated, to find a way in. And he was blunt about the price of isolation: "A note that is not connected to this network will get lost."</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What Obsidian keeps and what it drops<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>In Obsidian the address of a note is its title: a wikilink points at a name. That keeps the most useful half of Luhmann's idea (any note can be linked to from anywhere, and backlinks are worked out for you) and drops the other half. His number never changed. A title can. Rename a note inside Obsidian and its links are updated for you; rename it somewhere else and they break. Session 6 handles renaming safely.</p>
+        <p>If you want an address that never says anything about the content, the Unique note creator core plugin makes notes with time-coded titles, the closest thing in Obsidian to a fixed number. Most people prefer claim titles (Part 3), which read well inside a sentence but must be chosen with care, because changing them is a rename.</p>
+        <p>One thing Obsidian adds that paper could not: links can point inside a note, at a heading or a single block. Part 3 uses that to link at a sentence rather than a whole file.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <p><strong>"No system" did not mean no structure.</strong> The box still had a few broad top-level areas; what Luhmann refused was a tree of topics inside them. Session 3 reads the record on this, because it is the strongest argument for maps of content over folders.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the claim that the box made Luhmann productive</span>
+      <h2>One case, and the people who disagree about it</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Almost every note-taking pitch you will meet says some version of "Luhmann wrote a mountain of books because of his slip box". It is worth knowing exactly what supports that sentence, because the evidence is real, interesting and much thinner than the pitch. The honest position is a disagreement, and it stays one.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels. For: Luhmann's own account, read at source; Markus Krajewski calling the box the motor, reported; Ahrens framing the output as its result, an advocate; zettelkasten.de saying it amplifies effectiveness, an advocate. Against or limiting: a single self-reported case; Luhmann calling it a mere container for years; publications not copied from the box; the archive coordinator saying its creativity was not totally independent from its creator. Below, three output counts that disagree: about 50 books and 600 articles, about 60 books and hundreds of articles, more than 500 titles. An amber band underneath reads: one case, cannot separate the box from the man.">
+        <defs>
+          <filter id="o2bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="64" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="o2bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#6741C4" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="o2bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o2bH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o2bL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o2bS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o2bB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o2bA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o2bN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o2bH" x="30" y="26">"THE BOX MADE HIM PRODUCTIVE": WHAT EACH SIDE RESTS ON</text>
+
+        <g filter="url(#o2bSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="46" width="390" height="190" rx="10" transform="rotate(-0.4 235 141)" fill="#F5F1FD"/>
+          <rect x="450" y="46" width="390" height="190" rx="10" transform="rotate(0.4 645 141)" fill="#FFFFFF"/>
+          <path d="M60 104 L410 104 M60 144 L410 144 M60 184 L410 184" stroke="#D4D2DE" stroke-width="1.2"/>
+          <path d="M470 104 L820 104 M470 144 L820 144 M470 184 L820 184" stroke="#D4D2DE" stroke-width="1.2"/>
+          <rect x="40" y="254" width="250" height="56" rx="8" transform="rotate(-1.2 165 282)" fill="url(#o2bHc)"/>
+          <rect x="315" y="254" width="250" height="56" rx="8" transform="rotate(0.9 440 282)" fill="url(#o2bHc)"/>
+          <rect x="590" y="254" width="250" height="56" rx="8" transform="rotate(-0.7 715 282)" fill="url(#o2bHc)"/>
+          <rect x="52" y="262" width="226" height="40" rx="5" fill="#FFFFFF"/>
+          <rect x="327" y="262" width="226" height="40" rx="5" fill="#FFFFFF"/>
+          <rect x="602" y="262" width="226" height="40" rx="5" fill="#FFFFFF"/>
+          <rect x="200" y="326" width="480" height="40" rx="10" transform="rotate(0.5 440 346)" fill="#FDF3E3" stroke="#A15C07"/>
+          <path d="M132 360 L172 340 M152 350 L144 334 L160 334 Z"/>
+        </g>
+
+        <text class="o2bA" x="60" y="70">FOR</text>
+        <text class="o2bL" x="60" y="94">Luhmann's own account (read)</text>
+        <text class="o2bL" x="60" y="134">Krajewski: the box as "motor" (reported)</text>
+        <text class="o2bL" x="60" y="174">Ahrens: output as its result (advocate)</text>
+        <text class="o2bL" x="60" y="214">zettelkasten.de: "amplifies" (advocate)</text>
+        <text class="o2bA" x="470" y="70">AGAINST, OR LIMITS</text>
+        <text class="o2bL" x="470" y="94">n of one, and self-reported</text>
+        <text class="o2bL" x="470" y="134">"a mere container" for years (Luhmann)</text>
+        <text class="o2bL" x="470" y="174">books not copied from the box (Luhmann)</text>
+        <text class="o2bL" x="470" y="214">"not totally independent from its creator"</text>
+        <text class="o2bS" x="165" y="279" text-anchor="middle">about 50 books + 600 articles</text>
+        <text class="o2bS" x="165" y="294" text-anchor="middle">Krajewski, reported</text>
+        <text class="o2bS" x="440" y="279" text-anchor="middle">about 60 books + hundreds</text>
+        <text class="o2bS" x="440" y="294" text-anchor="middle">Ahrens, advocate</text>
+        <text class="o2bS" x="715" y="279" text-anchor="middle">more than 500 titles</text>
+        <text class="o2bS" x="715" y="294" text-anchor="middle">Schmidt 2018, read</text>
+        <text class="o2bA" x="40" y="248">EVEN THE OUTPUT COUNT DIFFERS</text>
+        <text class="o2bB" x="440" y="351" text-anchor="middle">one case: you cannot separate the box from the man</text>
+
+        <text class="o2bN" x="30" y="390">Tiers: read = at source; reported = second-hand; advocate = someone who teaches the method.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - both columns are real; the amber line is why neither wins, and why the counts do not even agree</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What the record supports<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>For.</strong> Luhmann himself describes the box as a "partner of communication" and says every note gets its quality "only from the network of links and back-links" (read). The media scholar Markus Krajewski is reported by Deutschlandfunk Kultur as calling the box the "motor" of Luhmann's text production (reported). Sonke Ahrens, who teaches the method, frames Luhmann's output as the box's result, and zettelkasten.de says the method "amplifies your effectiveness" (both advocates, read at source).</p>
+        <p><strong>Against, or limiting.</strong> It is one case, described by its own user: Luhmann called the essay an empirical account of himself and his box. He also says the box "needs a number of years in order to reach critical mass" and until then "functions as a mere container", and that theoretical publications "do therefore not result from simply copying" what is in it (read). Johannes Schmidt, who coordinates the archive project, writes that its creativity "was not totally independent from its creator of course" (read). Training, talent and decades of work sit in the same single case, and with one case they cannot be pulled apart.</p>
+        <p>Notice what the advocates say themselves: zettelkasten.de adds that the gain comes "not with less effort per time". That is a much smaller claim than the pitch.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why the counts disagree<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three sources, three numbers. Krajewski is reported as saying "around 50 books and 600 articles". Ahrens's author page says Luhmann published "roughly another 60 books and hundreds of articles" in 29 and a half years. Schmidt (2018) says his publication list at his death "comprised more than 500 titles". They are counting different things (books, articles, all titles, a time window) and at least one comes to us second-hand.</p>
+        <p>The cards have the same problem in miniature: about 90,000 in Schmidt and the academies' page, 70,000 in older secondary retellings. The professional habit is to quote the range with its source and tier, and to say "about". If a number matters to your argument and the sources disagree, the disagreement is the finding.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The method borrowed from a famous story.</strong> A familiar pattern: a team adopts a note system because someone famous used it, spends a month on numbering schemes and folder rules, and then wonders why nothing feels smarter. The story told them what the famous person did, not what made the difference, and the original author said the box was a mere container for years. Borrow the mechanism you can test on your own notes, and drop the promise.</p>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>No controlled study was found.</strong> Nothing read for these sessions tests whether linked, atomic notes improve learning or output against a comparison group. Treat every "this will make you more productive" as a hypothesis about you, and check it against your own vault.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers atomic notes, claim titles, block links and embeds</span>
+      <h2>One idea per note, and a title that says it</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">The part of Luhmann that travels is small and testable: a note that holds one idea can be linked to precisely, and a note that holds five cannot. Andy Matuschak's working notes (read at source) put it as principles: evergreen notes should be atomic, concept-oriented and densely linked, "written and organized to evolve, contribute, and accumulate over time, across projects". Obsidian then lets you link not just to a note but to one sentence inside it.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="On the left, one fat interview note, Brightwell P07, drawn with hachure, holding three ideas: trust borrowed from the bank app, data requests that felt like a threat, and a quote about a fee at the last step. Arrows split it into three insight notes on the right, each titled as a claim: Trust is borrowed from the brand people already use; Unexplained data requests read as a threat; A surprise fee at checkout reads as dishonesty. The third insight embeds the fee quote by its block id, highlighted in amber.">
+        <defs>
+          <filter id="o2cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="71" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="o2cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#6741C4" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="o2cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o2cH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o2cL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o2cS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o2cB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o2cA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o2cN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o2cH" x="30" y="26">ONE FAT NOTE, THREE ATOMIC NOTES, EACH TITLED AS A CLAIM</text>
+
+        <g filter="url(#o2cSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="48" width="270" height="270" rx="10" transform="rotate(-0.6 175 183)" fill="url(#o2cHc)"/>
+          <rect x="54" y="62" width="242" height="46" rx="6" fill="#FFFFFF"/>
+          <rect x="60" y="128" width="230" height="40" rx="6" transform="rotate(-1.5 175 148)" fill="#FFFFFF"/>
+          <rect x="60" y="188" width="230" height="40" rx="6" transform="rotate(1.2 175 208)" fill="#FFFFFF"/>
+          <rect x="60" y="248" width="230" height="40" rx="6" transform="rotate(-0.9 175 268)" fill="#FFFFFF"/>
+          <rect x="520" y="46" width="320" height="80" rx="8" transform="rotate(1.1 680 86)" fill="#F5F1FD"/>
+          <rect x="520" y="140" width="320" height="80" rx="8" transform="rotate(-1.3 680 180)" fill="#F5F1FD"/>
+          <rect x="520" y="234" width="320" height="110" rx="8" transform="rotate(0.8 680 289)" fill="#F5F1FD"/>
+          <rect x="536" y="298" width="288" height="34" rx="6" fill="#FDF3E3" stroke="#A15C07"/>
+          <path d="M296 146 C380 136 440 96 514 88" marker-end="url(#o2cAr)"/>
+          <path d="M296 208 C380 206 440 186 514 182" marker-end="url(#o2cAr)"/>
+          <path d="M296 268 C380 270 440 286 514 288" marker-end="url(#o2cAr)"/>
+          <path d="M392 60 L398 48 L404 60 M398 48 L398 78"/>
+        </g>
+
+        <text class="o2cA" x="66" y="80">INTERVIEW · one file, three ideas</text>
+        <text class="o2cL" x="66" y="98">Brightwell P07, 2026-04-11</text>
+        <text class="o2cL" x="74" y="152">trust borrowed from bank app</text>
+        <text class="o2cL" x="74" y="212">data asks felt like a threat</text>
+        <text class="o2cL" x="74" y="272">quote: fee at the last step</text>
+        <text class="o2cA" x="416" y="72">split</text>
+        <text class="o2cA" x="536" y="70">INSIGHT</text>
+        <text class="o2cL" x="536" y="90">Trust is borrowed from the brand</text>
+        <text class="o2cL" x="536" y="108">people already use</text>
+        <text class="o2cA" x="536" y="164">INSIGHT</text>
+        <text class="o2cL" x="536" y="184">Unexplained data requests read</text>
+        <text class="o2cL" x="536" y="202">as a threat</text>
+        <text class="o2cA" x="536" y="258">INSIGHT</text>
+        <text class="o2cL" x="536" y="276">A surprise fee at checkout reads</text>
+        <text class="o2cL" x="536" y="292">as dishonesty</text>
+        <text class="o2cB" x="548" y="320">embed ![[...P07#^p07-fee]] stays in sync</text>
+
+        <text class="o2cN" x="30" y="366">Constructed. Each insight links back to P07; one embeds the exact quote it rests on.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - three ideas, three addresses; the amber embed carries the evidence into the insight without copying it</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Atomic, concept-oriented, titled as a claim<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Matuschak's rule for atomic notes: "only about one thing - but which, as much as possible, capture the entirety of that thing". Too broad and every link to the note is vague; too fragmented and the network breaks into crumbs. He admits "There's no clear litmus test", which is honest and useful: you judge it by whether a link to the note would mean one thing.</p>
+        <p>Concept-oriented means factoring notes by idea "rather than by author, book, event, project, topic". An interview is an event, so an interview note is fine as a record, but the ideas inside it deserve notes of their own that can collect evidence from many interviews and clients.</p>
+        <p>Titles do the most work. "Evergreen note titles are like APIs", he writes, and he prefers complete phrases. "Trust" is a topic; "Trust is borrowed from the brand people already use" is a claim. Every link to a claim title reads as a sentence in the note that contains it, and you can disagree with it, which you cannot do with a topic.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Block links, heading links, embeds and display text<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A wikilink can point inside a note. <span class="mono">[[Note#Heading]]</span> links to a heading; <span class="mono">[[#</span> starts a heading link in the same note, and <span class="mono">[[## term</span> searches headings across the vault. <span class="mono">[[Note#^37066d]]</span> links to a single block, a paragraph or list item. Obsidian can generate the id, or you can write your own; the help says custom block ids "can only consist of Latin letters, numbers, and dashes".</p>
+        <p>Put <span class="mono">!</span> in front of any internal link and it becomes an embed: <span class="mono">![[Note#^id]]</span> shows that block inside the current note, and embedded content stays up to date when the source changes. Display text, <span class="mono">[[Example|Custom name]]</span>, changes the words a link shows without changing where it points; for a name you will reuse, use an alias (session 1).</p>
+        <p>One limit to say out loud: the help states that block references "won't work outside of Obsidian". In another editor, <span class="mono">^p07-fee</span> is just text at the end of a paragraph. Use block links where precision pays, not on every sentence.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Note types: interview, reading, insight<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Ines keeps three kinds of note, and the kind decides the title. An <strong>interview note</strong> is a record of an event, titled by date, client and participant ("2026-04-11 Brightwell interview P07"); it is never rewritten after the week it happened. A <strong>reading note</strong> records what a source says, titled by the source. An <strong>insight note</strong> holds one idea of hers, titled as a claim, and grows as evidence arrives from many records.</p>
+        <p>Sonke Ahrens's How to Take Smart Notes (2017) names a similar split, fleeting, literature and permanent notes (reported: the book was not read for these sessions). Matuschak observes that most people take only transient notes and "use notes as a bucket for storage or scratch thoughts", and that after a year they hold "a pile of dissociated notes". His practice is "heavily inspired by Niklas Luhmann's Zettelkasten", though he uses a different term on purpose.</p>
+        <p>How you read a text and turn it into a reading note by recall belongs to <a href="https://phoebefu6.github.io/learn-reading-with-phoebe/">Reading ↗</a>. Here a reading note is simply one note type with its own title rule.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Templates: start every insight the same way<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The Templates core plugin inserts a note you have written as a template. Three variables are filled in on insert: <span class="mono">{{title}}</span> (the note's title), <span class="mono">{{date}}</span> (YYYY-MM-DD by default) and <span class="mono">{{time}}</span> (HH:mm by default); both date and time accept Moment.js format strings. You point the plugin at a templates folder in its settings; check the current help for the exact setting name, because menus change between releases.</p>
+        <p>Templater and similar community plugins do much more, and are worth a look once the core plugin feels limiting. Nothing in these sessions needs them.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The note called "Meeting notes 3".</strong> A familiar sight in any shared drive: dozens of notes titled by date or meeting name, each holding a decision, two complaints and an idea. Searching finds them, but linking to one says nothing about which part mattered. Pull the one recurring idea into a note titled as a claim and it can start collecting evidence from meetings nobody remembered were related.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Split Ines's fattest interview note</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">Take the longest note in your vault (homework from session 1 found it) or follow Ines's interview with participant P07 at Brightwell Mutual, constructed for the purpose. You will leave the interview as an untouched record, pull each idea into its own insight note, and link back to the exact sentence each insight rests on.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Before: one note, Brightwell interview P07, holding three ideas and no links. After: the same interview note, now with a block id ^p07-fee on the fee quote, highlighted in amber, and three insight notes below it, each linking back to the interview. Before: 1 note, 0 links. After: 4 notes, 3 links back and 1 embed. Constructed; your numbers will differ.">
+        <defs>
+          <filter id="o2dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="83" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="o2dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#6741C4" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="o2dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o2dH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o2dL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o2dS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o2dB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o2dA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o2dN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o2dH" x="30" y="26">BEFORE AND AFTER: THE RECORD STAYS, THE IDEAS MOVE OUT</text>
+
+        <g filter="url(#o2dSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="50" width="370" height="250" rx="10" transform="rotate(-0.4 225 175)" fill="#F5F1FD"/>
+          <rect x="470" y="50" width="370" height="250" rx="10" transform="rotate(0.4 655 175)" fill="#F5F1FD"/>
+          <rect x="66" y="96" width="318" height="186" rx="8" transform="rotate(-0.8 225 189)" fill="url(#o2dHc)"/>
+          <rect x="80" y="108" width="290" height="32" rx="5" fill="#FFFFFF"/>
+          <rect x="80" y="152" width="290" height="30" rx="5" fill="#FFFFFF"/>
+          <rect x="80" y="192" width="290" height="30" rx="5" fill="#FFFFFF"/>
+          <rect x="80" y="232" width="290" height="30" rx="5" fill="#FFFFFF"/>
+          <rect x="496" y="96" width="318" height="66" rx="8" transform="rotate(0.7 655 129)" fill="#FFFFFF"/>
+          <rect x="510" y="128" width="290" height="26" rx="5" fill="#FDF3E3" stroke="#A15C07"/>
+          <rect x="560" y="182" width="254" height="26" rx="5" transform="rotate(-1.2 687 195)" fill="#FFFFFF"/>
+          <rect x="560" y="218" width="254" height="26" rx="5" transform="rotate(1 687 231)" fill="#FFFFFF"/>
+          <rect x="560" y="254" width="254" height="26" rx="5" transform="rotate(-0.8 687 267)" fill="#FFFFFF"/>
+          <path d="M556 195 L530 195 M556 231 L530 231 M556 267 L530 267 L530 166" marker-end="url(#o2dAr)"/>
+          <path d="M414 176 L464 176" marker-end="url(#o2dAr)"/>
+        </g>
+
+        <text class="o2dA" x="60" y="78">BEFORE · 1 note, 3 ideas, 0 links</text>
+        <text class="o2dL" x="92" y="129">Brightwell interview P07</text>
+        <text class="o2dS" x="92" y="171">trust borrowed from the bank app</text>
+        <text class="o2dS" x="92" y="211">data requests felt like a threat</text>
+        <text class="o2dS" x="92" y="251">quote: the fee at the last step</text>
+        <text class="o2dA" x="490" y="78">AFTER · 4 notes, 3 links back, 1 embed</text>
+        <text class="o2dL" x="512" y="118">Brightwell interview P07</text>
+        <text class="o2dB" x="522" y="145">fee quote ends with ^p07-fee</text>
+        <text class="o2dS" x="572" y="199">Trust is borrowed ...</text>
+        <text class="o2dS" x="572" y="235">Unexplained data requests ...</text>
+        <text class="o2dS" x="572" y="271">A surprise fee ... (embeds quote)</text>
+
+        <text class="o2dN" x="30" y="324">Constructed counts for Ines's note. Your numbers will differ: count your own before and after.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the interview is never deleted or rewritten; it gains one block id, and three insights point back at it</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Pick your fattest note and count its ideas.</strong> Open it and write, at the bottom, one line per separate idea. An idea is something you could imagine a different note linking to on its own. Ines's interview has three.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · 2026-04-11 Brightwell interview P07.md (the end of it)</span>P07, renewal journey, video call.
+Only trusted the form "because it looked like my bank".
+Asked why we need her employer: "felt like they were
+checking up on me."
+"Then there was a fee on the last screen. That's when I
+stopped believing anything they said."
+
+Ideas in here: 3 (trust, data requests, the fee)</div>
+      </div>
+      <div class="step">
+        <p><strong>Write the first insight as a claim title.</strong> Create a new note whose title is the idea stated as something that could be wrong. Write two or three lines in your own words, and link back to the interview inside a sentence.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · Trust is borrowed from the brand people already use.md</span>People extend trust to a new form when it looks like
+something they already trust, such as their bank's app.
+First seen in [[2026-04-11 Brightwell interview P07]].
+
+Next two titles, same pattern:
+  Unexplained data requests read as a threat
+  A surprise fee at checkout reads as dishonesty</div>
+      </div>
+      <div class="step">
+        <p><strong>Give the fee quote a block id and link to it.</strong> In the interview note, go to the end of the fee quote's paragraph and type a space, a caret and an id. Ids may use only Latin letters, numbers and dashes. Then, in the fee insight, link to that exact paragraph.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · a block id in the interview, a block link in the insight</span>In 2026-04-11 Brightwell interview P07:
+"Then there was a fee on the last screen. That's when I
+stopped believing anything they said." ^p07-fee
+
+In A surprise fee at checkout reads as dishonesty:
+P07 said it outright: [[2026-04-11 Brightwell interview P07#^p07-fee|P07 on the fee]].</div>
+      </div>
+      <div class="step">
+        <p><strong>Embed the quote in the insight.</strong> Add a line with the same link and a <span class="mono">!</span> in front. Reading view now shows P07's own words inside the insight. Edit the quote in the interview and the embed updates; the words are stored once.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · A surprise fee at checkout reads as dishonesty.md</span>A fee that appears only at the last step makes people
+re-read everything before it as a trick.
+
+Evidence:
+![[2026-04-11 Brightwell interview P07#^p07-fee]]
+
+(Outside Obsidian this line stays plain text: block
+references do not work in other editors.)</div>
+      </div>
+      <div class="step">
+        <p><strong>Make an "Insight note" template.</strong> Create a folder called Templates, add a note named "Insight note" with the text below, and set that folder as the template folder in the Templates core plugin's settings (check the current help for the setting's exact name). Next time, create a note, title it as a claim, and insert the template.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · Templates/Insight note.md</span>---
+type: insight
+created: {{date}}
+---
+# {{title}}
+
+Claim in two lines, in my own words.
+
+Evidence:
+- [[record#^block-id]]
+
+Related:</div>
+      </div>
+      <div class="step">
+        <p><strong>Count what changed.</strong> Open the interview note's backlinks panel: each insight now appears under Linked mentions. Write the before and after counts in your homework file. Ines's counts are constructed; yours come from your own note.</p>
+        <div class="prompt-box good"><span class="label">★ Step 6 · the finding (your numbers will differ)</span>Before   1 note, 3 ideas, 0 links
+After    4 notes: 1 interview (unchanged record + 1 block id)
+                  3 insights, each titled as a claim
+         3 links back to the interview, 1 of them to a block
+         1 embed of the fee quote
+Backlinks on the interview: 3 (worked out by Obsidian)</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Leave the record alone.</strong> The interview stays what happened, in the order it happened. Splitting moves your ideas out, not the evidence: if a client ever asks "where did that come from?", every insight points to the exact sentence.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before session 3</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Split two more fat notes</strong> the same way: the record stays, each idea gets a claim-titled note that links back inside a sentence.</li>
+      <li><strong>Rewrite five topic titles as claims.</strong> "Onboarding" becomes something like "Onboarding fails at the first ask for personal data". Rename inside Obsidian so the links follow.</li>
+      <li><strong>Add one block link and one embed</strong> where an insight rests on a specific quote, and open the note in a plain text editor once to see what the block id looks like outside Obsidian.</li>
+      <li><strong>Find a "the slip box made Luhmann productive" claim</strong> in an article or video. Write one paragraph on what it rests on, using the read, reported and advocate tiers.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 2 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · What did Luhmann's fixed, never-changing slip numbers give him?</p>
+      <button class="qopt" type="button">A · A topic tree, so related slips always sat together</button>
+      <button class="qopt" type="button">B · A way to sort the whole box by date when he needed to</button>
+      <button class="qopt" type="button">C · Unlimited branching at any slip, and links to any slip, without ever moving or renumbering one</button>
+      <button class="qopt" type="button">D · A guarantee that no note would ever get lost</button>
+      <p class="qwhy">57/12 could gain 57/12a, 57/12b and 57/12a1 years later, filed behind it, and any slip could be referenced by number from anywhere. He chose a fixed place over a topic system, and he warned that an unconnected note "will get lost", so the numbers guaranteed nothing on their own.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · What is the strongest honest statement about the slip box and Luhmann's output?</p>
+      <button class="qopt" type="button">A · It is contested: one self-reported case, where the box cannot be separated from the man, and even the output counts disagree</button>
+      <button class="qopt" type="button">B · Studies show the slip box tripled his output</button>
+      <button class="qopt" type="button">C · The box had no effect; Luhmann said it was only a container</button>
+      <button class="qopt" type="button">D · It is settled: every source agrees he wrote exactly 60 books because of it</button>
+      <p class="qwhy">Luhmann's account and the advocates argue for the box; Luhmann himself calls it "a mere container" for years, and the archive's coordinator says its creativity was "not totally independent from its creator". One case cannot separate the two, and no controlled study was found. C overstates the other side: "a mere container" was about the early years.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · Which title makes the best atomic insight note?</p>
+      <button class="qopt" type="button">A · Brightwell findings</button>
+      <button class="qopt" type="button">B · Trust</button>
+      <button class="qopt" type="button">C · Interview P07 thoughts and misc</button>
+      <button class="qopt" type="button">D · A surprise fee at checkout reads as dishonesty</button>
+      <p class="qwhy">D states one idea as a claim, so every link to it reads as a sentence and the note can collect evidence from any client. A is a project, B a topic and C an event, which is exactly how Matuschak says not to factor notes.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Niklas Luhmann, "Communicating with Slip Boxes: An Empirical Account", trans. Manfred Kuehn (orig. 1981)</span><span class="note">Fixed filing place, never-changing numbers, branching 57/12 to 57/12a1, links and back links, the keyword register, "a mere container"; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Johannes F.K. Schmidt (2018), "Niklas Luhmann's Card Index: The Fabrication of Serendipity", Sociologica 12(1): 53-60</span><span class="note">About 90,000 cards, more than 500 titles, "not totally independent from its creator"; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Union der deutschen Akademien der Wissenschaften, "90.000 Zettel"</span><span class="note">More than 90,000 slips over 40 years, published open access; read at source</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Deutschlandfunk Kultur, "Niklas Luhmann-Archiv - Der Blick in den Zettelkasten ist jetzt online"</span><span class="note">Krajewski's "motor" and around 50 books and 600 articles; reported</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Sonke Ahrens, author page, and the zettelkasten.de introduction</span><span class="note">About 60 books and hundreds of articles; "amplifies your effectiveness", "not with less effort per time"; advocates</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Sonke Ahrens, How to Take Smart Notes (2017)</span><span class="note">Fleeting, literature and permanent notes; reported, the book was not read</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Andy Matuschak, public working notes</span><span class="note">Evergreen notes: atomic, concept-oriented, densely linked, associative; titles like APIs; transient notes; the Zettelkasten debt; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Obsidian Help: Internal links, Embed files, Templates, Unique note creator</span><span class="note">Heading and block links, custom block ids, display text, embeds, {{title}} {{date}} {{time}}, time-coded titles; read at source</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Ines and her notes</span><span class="note">Constructed; the help pages were read in October 2026 and features change, so check the current help before relying on a menu name</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 2 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>A fixed address</b><span>Luhmann's numbers never changed, so any slip could branch or be linked forever. In Obsidian the address is the title: rename inside the app.</span></div>
+      <div class="cheat-item"><b>The contested claim</b><span>One self-reported case. For: Luhmann, Krajewski (reported), advocates. Limits: "mere container", not independent of its creator.</span></div>
+      <div class="cheat-item"><b>Atomic note</b><span>One idea, the whole idea. Test: would a link to it mean one thing?</span></div>
+      <div class="cheat-item"><b>Claim title</b><span>"A surprise fee at checkout reads as dishonesty", not "Fees". Titles work like APIs.</span></div>
+      <div class="cheat-item"><b>Block link and embed</b><span>Add ^id to a paragraph; link [[Note#^id]], embed ![[Note#^id]]. Not portable outside Obsidian.</span></div>
+      <div class="cheat-item"><b>Template</b><span>Templates core plugin; {{title}}, {{date}}, {{time}}. One "Insight note" template with type: insight.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>Atomic notes multiply fast, and a pile of good notes is still a pile. Session 3 asks how you find your way in without a topic tree: folders, tags, properties, search and maps of content, starting from Luhmann's keyword register, which pointed into the box at only a handful of places per term. You build one map for one theme in Ines's vault.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 2 of 6 · learn-obsidian-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="01-a-note-that-knows-its-neighbours.html">← Prev: A note that knows its neighbours</a> &nbsp;·&nbsp; <a href="03-maps-of-content-not-folders.html">Next: Maps of content, not folders →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=2"></script>
+</body>
+</html>

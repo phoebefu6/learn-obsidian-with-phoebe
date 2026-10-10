@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 4 of 6. Run real graph algorithms on a constructed 192-note research vault: folders, tags, idea links and maps of content, twelve find-everything questions, recall and precision within two hops, plus the move that makes the graph look perfect and the rename that breaks it.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The link bench - learn obsidian with phoebe">
+<meta property="og:description" content="Session 4 of 6. Folders, tags, links and maps of content, measured with breadth-first search on a 192-note vault.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-obsidian-with-phoebe/courses/04-the-link-bench.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-obsidian-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The link bench - learn obsidian with phoebe">
+<meta name="twitter:description" content="Session 4 of 6. Recall and precision within two hops, on four ways of organising one vault.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-obsidian-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 4 · The link bench - learn obsidian with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-obsidian-with-phoebe</a> / Session 4 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Obsidian with Phoebe · Session 4 of 6</div>
+    <h1>The link <span class="accent">bench</span></h1>
+    <p class="sub">Three sessions of argument about folders, tags, links and maps of content, and now a measurement. Ines's whole vault, 192 notes, sits in your browser. For twelve questions of the form "find everything about this theme" the page starts from the note she would have open and walks outward two steps, exactly as you would click, using breadth-first search on the real link structure. Then it counts what you reached and how much of it mattered. Four ways of organising the same notes, one move that makes the graph look perfect, and one rename that breaks it.</p>
+    <div class="chip-row">
+      <span class="chip level">🟠 Deeper</span>
+      <span class="chip audience">Anyone who has to find things again</span>
+      <span class="chip audience">A browser; no install</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:3">3-14 · How the bench counts</span>
+      <span class="a3" style="flex:6">14-40 · Run the ladder, then break it</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">Nothing on this bench is a real person's vault. Ines is constructed, and so are her 192 notes: 72 interview notes across her four clients, 12 project notes, 30 reading notes, 48 short insight notes, 26 daily notes and 4 admin notes, plus 12 maps of content that exist only on the last rung. They were generated once from a fixed seed, so every visitor sees the same vault. What is real is the arithmetic: breadth-first search, degree counts and connected components run on that structure in your browser, and an independent Python script reproduces every number on this page exactly.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Bench = run it yourself</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> A measured answer to "folders, tags or links?" for one vault, the surprise that a few idea links on their own do worse than folders, the number that shows why maps of content matter, and two warnings you can now prove: a graph with no orphans can be useless, and a note renamed outside Obsidian quietly cuts the links that pointed at it.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers how the bench counts a hop</span>
+      <h2>Two clicks from the note you have open</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Every question starts from a fixed note, usually the latest interview where the theme came up, because that is where Ines is when the question occurs to her. From there the reader may take two steps. What counts as a step depends on the rung: open a folder, click a tag, follow a link, or follow a backlink. Then the bench counts how many notes were reached, how many of them carry the theme, and how many of the theme's notes were missed.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four small panels, one per rung, each showing the start note and what two steps reach. Folders only: start, the folder listing, then every note in that folder. Tags only: start, a tag page, then every note with that tag. Idea links: start, a linked note, then that note's links and backlinks. Plus maps of content: start, a map note, then every note the map lists. Folder listings, tag pages and maps are drawn in amber as signposts: they cost a step but are never counted as found.">
+        <defs>
+          <filter id="o4aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="13" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <marker id="o4aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o4aH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o4aL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o4aS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o4aB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o4aA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o4aN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o4aH" x="30" y="26">WHAT ONE STEP MEANS ON EACH RUNG</text>
+
+        <g filter="url(#o4aSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="44" width="190" height="196" rx="10" transform="rotate(-0.5 125 142)" fill="#FFFFFF"/>
+          <rect x="240" y="44" width="190" height="196" rx="10" transform="rotate(0.4 335 142)" fill="#FFFFFF"/>
+          <rect x="450" y="44" width="190" height="196" rx="10" transform="rotate(-0.4 545 142)" fill="#FFFFFF"/>
+          <rect x="660" y="44" width="190" height="196" rx="10" transform="rotate(0.5 755 142)" fill="#F5F1FD"/>
+          <circle cx="125" cy="98" r="10" fill="#6741C4"/>
+          <rect x="105" y="128" width="40" height="22" rx="4" fill="#FDF3E3" stroke="#A15C07"/>
+          <circle cx="75" cy="196" r="7" fill="#FFFFFF"/><circle cx="105" cy="196" r="7" fill="#FFFFFF"/><circle cx="145" cy="196" r="7" fill="#FFFFFF"/><circle cx="175" cy="196" r="7" fill="#FFFFFF"/>
+          <path d="M125 109 L125 124" marker-end="url(#o4aAr)"/>
+          <path d="M120 152 L80 186 M122 152 L106 186 M128 152 L144 186 M130 152 L170 186"/>
+          <circle cx="335" cy="98" r="10" fill="#6741C4"/>
+          <rect x="315" y="128" width="40" height="22" rx="11" fill="#FDF3E3" stroke="#A15C07"/>
+          <circle cx="295" cy="196" r="7" fill="#FFFFFF"/><circle cx="335" cy="196" r="7" fill="#FFFFFF"/><circle cx="375" cy="196" r="7" fill="#FFFFFF"/>
+          <path d="M335 109 L335 124" marker-end="url(#o4aAr)"/>
+          <path d="M328 152 L299 186 M335 152 L335 186 M342 152 L371 186"/>
+          <circle cx="545" cy="98" r="10" fill="#6741C4"/>
+          <circle cx="545" cy="139" r="8" fill="#FFFFFF"/>
+          <circle cx="510" cy="196" r="7" fill="#FFFFFF"/><circle cx="580" cy="196" r="7" fill="#FFFFFF"/>
+          <path d="M545 109 L545 129"/>
+          <path d="M539 146 L515 188 M551 146 L575 188"/>
+          <circle cx="755" cy="98" r="10" fill="#6741C4"/>
+          <rect x="735" y="128" width="40" height="22" rx="4" fill="#FDF3E3" stroke="#A15C07"/>
+          <circle cx="695" cy="196" r="7" fill="#FFFFFF"/><circle cx="725" cy="196" r="7" fill="#FFFFFF"/><circle cx="755" cy="196" r="7" fill="#FFFFFF"/><circle cx="785" cy="196" r="7" fill="#FFFFFF"/><circle cx="815" cy="196" r="7" fill="#FFFFFF"/>
+          <path d="M755 109 L755 124"/>
+          <path d="M747 152 L699 188 M751 152 L727 188 M755 152 L755 188 M759 152 L783 188 M763 152 L811 188"/>
+        </g>
+
+        <text class="o4aA" x="125" y="66" text-anchor="middle">1 FOLDERS ONLY</text>
+        <text class="o4aB" x="152" y="144">folder</text>
+        <text class="o4aS" x="125" y="226" text-anchor="middle">same folder, any theme</text>
+        <text class="o4aA" x="335" y="66" text-anchor="middle">2 TAGS ONLY</text>
+        <text class="o4aB" x="362" y="144">#tag page</text>
+        <text class="o4aS" x="335" y="226" text-anchor="middle">same spelling of the tag</text>
+        <text class="o4aA" x="545" y="66" text-anchor="middle">3 IDEA LINKS</text>
+        <text class="o4aS" x="560" y="144">linked note</text>
+        <text class="o4aS" x="545" y="226" text-anchor="middle">links and backlinks</text>
+        <text class="o4aA" x="755" y="66" text-anchor="middle">4 + MAPS OF CONTENT</text>
+        <text class="o4aB" x="782" y="144">map note</text>
+        <text class="o4aS" x="755" y="226" text-anchor="middle">everything the map lists</text>
+
+        <text class="o4aN" x="30" y="268">Purple dot: the start note. Amber: a signpost, which costs a step and is never counted as found.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - two steps from the same start; the amber signposts decide how far a reader can actually get</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The two numbers, and why both<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Recall</strong> is the share of the theme's notes you reached: of all the notes Ines labelled with "notification fatigue", how many are within two steps. <strong>Precision</strong> is the share of what you reached that was about the theme. Recall alone rewards reaching everything; precision alone rewards reaching almost nothing. A good structure gets you most of the relevant notes without burying them in the rest. The bench averages both over twelve questions and also counts a question as answered when its recall reaches 75 percent.</p>
+        <p>Links count both ways, because the backlinks panel from session 1 makes every link walkable from either end. A note is relevant when Ines labelled it with the theme while writing the vault; the labels are the answer key and are not visible to the reader on any rung.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What the four rungs hold, exactly<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Folders only:</strong> notes live in folders by client and by kind (Clients/Corvid/Interviews, Reading, Insights, Daily, Admin). <strong>Tags only:</strong> each interview carries its client tag, and theme tags are applied the way people actually apply them: about two times in three, in three drifting spellings (#onboarding, #onboard, #first-run), so a tag page shows one spelling only. <strong>Idea links:</strong> the 226 wikilinks Ines wrote by idea, about 1.2 per note: interviews to insights, insights to insights and readings, project readouts to the insights they cite, daily notes to the interviews of that day. Some interviews were never processed and link nowhere. <strong>Plus maps of content:</strong> twelve map notes, one per theme, each listing the theme's insights, readings and findings readout; insights, readings and projects link up to their map, and so do 70 percent of interviews, the ones Ines got round to processing.</p>
+        <p>The full rules sit in a comment at the top of the bench's script, and the vault itself is a readable data file next to it.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="bench">
+    <div class="section-kicker">
+      <span class="klabel">Bench</span>
+      <h2>Ines's vault, rung by rung</h2>
+      <span class="tag demo">★ 22 min · everyone runs it</span>
+    </div>
+    <p class="lede">Start on rung 1. Read the six numbers, then scan the table for which questions fail. Move up one rung at a time and say out loud which number moved and which way, before you look at the next. Only then press the two levers underneath: the amber one is a move people make on purpose, the red one is an accident.</p>
+
+    <div id="link-bench">
+      <div class="lb-controls">
+        <div class="lb-rungs" role="group" aria-label="Rung"></div>
+        <div class="lb-levers">
+          <button class="lb-lever" type="button" data-lb="anti" aria-pressed="false">Anti-lever · link every mention of every term</button>
+          <button class="lb-lever is-break" type="button" data-lb="break" aria-pressed="false">Break · rename 20 notes outside Obsidian</button>
+        </div>
+      </div>
+      <div class="lb-out" aria-live="polite"></div>
+      <p class="lb-honest">Constructed vault, seeded: Ines and all 192 notes are fictional. The graph algorithms are real and run in your browser; a Python reference reproduces every number. Depth 2 steps. Answered = recall of 75 percent or more.</p>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Read it in this order.</strong> Recall, precision, then questions answered. On rung 1 a reader starting from the right interview reaches 14.3 notes on average and finds 19.1 percent of what matters, with 17.7 percent of the reached notes relevant. No question is answered. Keep those three numbers in your head as you climb.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the ladder's numbers</span>
+      <h2>A few links lose to a folder</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">These are the numbers the widget prints, written down so they can be argued with after class. The ladder is not a straight climb, and the dip on rung 3 is the most useful thing on the page.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Paired bars for four rungs, mean recall and mean precision within two steps, constructed vault. Folders only: recall 19.1 percent, precision 17.7 percent. Tags only: recall 38.3, precision 32.1. Idea links: recall 11.5, precision 34.5, the lowest recall. Plus maps of content: recall 84.4, precision 66.6, highlighted in amber, with 11 of 12 questions answered.">
+        <defs>
+          <filter id="o4bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="29" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="o4bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#6741C4" stroke-width="1" opacity=".5"/></pattern>
+        </defs>
+        <style>
+          .o4bH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o4bL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o4bS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o4bB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o4bV { font: 800 12px Inter, sans-serif; fill: #45288A; }
+          .o4bN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o4bH" x="30" y="26">MEAN RECALL AND PRECISION WITHIN TWO STEPS, 12 QUESTIONS</text>
+
+        <g filter="url(#o4bSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="260" y="56" width="92" height="20" rx="4" fill="#6741C4"/>
+          <rect x="260" y="80" width="85" height="20" rx="4" fill="url(#o4bHc)"/>
+          <rect x="260" y="124" width="184" height="20" rx="4" fill="#6741C4"/>
+          <rect x="260" y="148" width="154" height="20" rx="4" fill="url(#o4bHc)"/>
+          <rect x="260" y="192" width="55" height="20" rx="4" fill="#6741C4"/>
+          <rect x="260" y="216" width="166" height="20" rx="4" fill="url(#o4bHc)"/>
+          <rect x="260" y="260" width="405" height="20" rx="4" fill="#A15C07" stroke="#6B3D04"/>
+          <rect x="260" y="284" width="320" height="20" rx="4" fill="#FDF3E3" stroke="#A15C07"/>
+        </g>
+
+        <text class="o4bL" x="240" y="72" text-anchor="end">1 Folders only</text>
+        <text class="o4bS" x="240" y="96" text-anchor="end">0 of 12 answered</text>
+        <text class="o4bL" x="240" y="140" text-anchor="end">2 Tags only</text>
+        <text class="o4bS" x="240" y="164" text-anchor="end">0 of 12 answered</text>
+        <text class="o4bL" x="240" y="208" text-anchor="end">3 Idea links</text>
+        <text class="o4bS" x="240" y="232" text-anchor="end">0 of 12 answered</text>
+        <text class="o4bL" x="240" y="276" text-anchor="end">4 + Maps of content</text>
+        <text class="o4bB" x="240" y="300" text-anchor="end">11 of 12 answered</text>
+
+        <text class="o4bV" x="362" y="71">recall 19.1%</text>
+        <text class="o4bV" x="355" y="95">precision 17.7%</text>
+        <text class="o4bV" x="454" y="139">recall 38.3%</text>
+        <text class="o4bV" x="424" y="163">precision 32.1%</text>
+        <text class="o4bV" x="325" y="207">recall 11.5%</text>
+        <text class="o4bV" x="436" y="231">precision 34.5%</text>
+        <text class="o4bV" x="675" y="275">recall 84.4%</text>
+        <text class="o4bV" x="590" y="299">precision 66.6%</text>
+
+        <text class="o4bN" x="30" y="336">Solid bar: recall. Hatched bar: precision. Constructed vault; a full bar would be 100 percent.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the third rung dips below folders, and only the amber rung, links plus hub notes, answers the questions</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Rungs 1 and 2: the pile and the misspelled pile<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Folders put an interview next to the other interviews from the same client, whatever they were about. From the start note a reader reaches 14.3 notes on average, and 19.1 percent of the relevant notes. Three method questions (recruiting, synthesis, stakeholder buy-in) start from a project note in a client folder of three notes and reach two: recall 0.</p>
+        <p>Tags do better, recall 38.3 percent and precision 32.1, because a theme tag crosses folders. But the tag pages split by spelling, and about a third of theme labels never became a tag, so even the best tag question stops at 63.6 percent. Tags are a filing label, not a connection: the help is clear that the graph view draws links between notes, and the orphan count on rungs 1 and 2 is all 192 notes.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Rung 3: why a few good links are not enough<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Ines's 226 idea links are well chosen: precision rises to 34.5 percent, the best of the first three rungs. Recall falls to 11.5 percent and a reader reaches only 4.8 notes. Each link is a short corridor; two steps along a corridor of one or two links each do not get far. Six of the twelve questions reach nothing relevant at all: their start note links to nothing, or only to a note that leads nowhere near the theme. Twenty notes are orphans.</p>
+        <p>This is the honest finding to keep: linking by idea does not pay off note by note. It pays off when some notes become crossroads, which is what Luhmann's keyword index and the cards his archivist calls hubs were for (session 3).</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Rung 4: the crossroads<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Add twelve maps of content, one per theme, and have notes link up to their map. Now the second step from almost any start lands on a map, and the map lists the theme. Recall jumps to 84.4 percent, precision to 66.6, and 11 of 12 questions are answered. Orphans fall to 5 and the largest connected piece holds 96.4 percent of the vault.</p>
+        <p>The one failure is "trust and credibility", at 26.9 percent: its start interview is one of the 30 percent Ines never processed, so it links to no map. A map helps only the notes that point at it, which is why session 6 makes "link it up to a map" part of finishing a note.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What the bench cannot tell you<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The vault is constructed and its structure was chosen by a person, so the bench compares ways of organising one plausible vault; it does not measure how people actually search, and no controlled study was found showing that linked notes improve retrieval or learning. Search is not on the bench at all, and full-text search would find many of these notes by word. What the bench does show, for certain, is arithmetic about structure: what two steps can and cannot reach, given the links that exist.</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the anti-lever and the break</span>
+      <h2>A perfect-looking graph, and a silent rename</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Two levers. The first is a move people make on purpose because the graph looks better afterwards: link every mention of every term. The second is an accident that happens to everyone eventually: notes renamed somewhere that does not update links.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels on rung 4. Left, link every mention of every term: orphans 5 to 0, largest component 96.4 to 100 percent, recall 84.4 to 100 percent, notes reached 23.0 to 181.8, and precision 66.6 to 9.1 percent, the precision line highlighted. Right, rename 20 notes outside Obsidian: 72 links now point at names that no longer exist, recall 84.4 to 80.1 percent, questions answered 11 to 10, interviewer bias falls from 90.0 to 70.0 percent and now fails.">
+        <defs>
+          <filter id="o4cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="43" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+        </defs>
+        <style>
+          .o4cH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o4cL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o4cS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o4cB { font: 800 12px Inter, sans-serif; fill: #6B3D04; }
+          .o4cR { font: 800 12px Inter, sans-serif; fill: #991B1B; }
+          .o4cA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o4cN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o4cH" x="30" y="26">RUNG 4, THEN EACH LEVER (CONSTRUCTED VAULT)</text>
+
+        <g filter="url(#o4cSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="46" width="390" height="230" rx="12" transform="rotate(-0.4 235 161)" fill="#FFFFFF"/>
+          <rect x="56" y="214" width="358" height="30" rx="6" fill="#FDF3E3" stroke="#A15C07"/>
+          <rect x="450" y="46" width="390" height="230" rx="12" transform="rotate(0.4 645 161)" fill="#FEF2F2" stroke="#FCA5A5"/>
+        </g>
+
+        <text class="o4cA" x="60" y="72">ANTI-LEVER · LINK EVERY MENTION</text>
+        <text class="o4cL" x="60" y="102">Orphans</text><text class="o4cL" x="300" y="102">5 to 0</text>
+        <text class="o4cL" x="60" y="128">Largest component</text><text class="o4cL" x="300" y="128">96.4% to 100.0%</text>
+        <text class="o4cL" x="60" y="154">Mean recall</text><text class="o4cL" x="300" y="154">84.4% to 100.0%</text>
+        <text class="o4cL" x="60" y="180">Notes reached</text><text class="o4cL" x="300" y="180">23.0 to 181.8</text>
+        <text class="o4cB" x="70" y="234">Mean precision</text><text class="o4cB" x="300" y="234">66.6% to 9.1%</text>
+        <text class="o4cS" x="60" y="264">Links: 498 to 1,488. Every health metric improves.</text>
+
+        <text class="o4cR" x="470" y="72">BREAK · RENAME 20 NOTES OUTSIDE OBSIDIAN</text>
+        <text class="o4cL" x="470" y="102">Links now pointing nowhere</text><text class="o4cL" x="730" y="102">72</text>
+        <text class="o4cL" x="470" y="128">Mean recall</text><text class="o4cL" x="730" y="128">84.4% to 80.1%</text>
+        <text class="o4cL" x="470" y="154">Questions answered</text><text class="o4cL" x="730" y="154">11 to 10</text>
+        <text class="o4cL" x="470" y="180">Interviewer bias</text><text class="o4cL" x="730" y="180">90.0% to 70.0%</text>
+        <text class="o4cL" x="470" y="206">Orphans</text><text class="o4cL" x="730" y="206">5 to 8</text>
+        <text class="o4cS" x="470" y="234">Folders and tags: nothing changes.</text>
+        <text class="o4cS" x="470" y="254">Inside Obsidian, a rename updates links.</text>
+
+        <text class="o4cN" x="30" y="308">Both panels start from rung 4: recall 84.4%, precision 66.6%, 11 of 12 answered.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - on the left every graph metric improves while the amber line collapses; on the right nothing looks wrong until a question fails</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Link every mention: 100 percent recall, 9 percent precision<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The anti-lever turns every term a note mentions into a link: <span class="mono">[[user]]</span>, <span class="mono">[[interview]]</span>, <span class="mono">[[client]]</span> and each theme's name. On rung 4 the vault goes from 498 links to 1,488, orphans drop to 0, and the whole vault becomes one connected piece. Recall hits 100 percent and all 12 questions count as answered, because two steps now reach 181.8 notes on average, nearly the entire vault. Precision falls to 9.1 percent, roughly the share of the vault on any one theme: no better than opening notes without looking.</p>
+        <p>This is the reasoning behind session 1's advice to link the idea, not the word, and it is what session 5 means by asking what the graph view is not telling you. A graph with no orphans and one giant component can be a vault where every question's answer is "everything".</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The rename that no one updated<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Inside Obsidian a rename is safe: the help says renaming a note updates all the links to it, and with the setting Automatically update internal links turned off, Obsidian prompts you instead. The break models the other case: 20 notes renamed in Finder, in another editor or by a sync script, where nothing can update the links. Every link that pointed at an old name now points at a note that does not exist: 72 of them on rung 4.</p>
+        <p>The renamed notes keep their own outgoing links, so a backlink still leads to them from the other side, and recall only slips from 84.4 to 80.1 percent. But "interviewer bias" drops from 90.0 to 70.0 percent and stops counting as answered, and "trust and credibility" drops from 26.9 to 3.8. On rung 3, with fewer routes, 51 broken links cut recall from 11.5 to 6.5 percent. Folders and tags do not notice at all. Session 6 is about renaming safely.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The tidy-up that happened in the file manager.</strong> A familiar pattern: someone decides their note titles are inconsistent and fixes them in a batch with a rename tool, outside the note app, on a Sunday. Nothing errors. Weeks later a search for an old project turns up notes whose links lead to empty pages with the old titles. Session 6 shows how to rename from inside Obsidian and how to spot unresolved links afterwards.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before session 5</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Write down the ladder from the widget</strong>: recall, precision and questions answered for each rung, and one sentence on the rung 3 dip in your own words.</li>
+      <li><strong>Turn on the anti-lever on every rung</strong> and record precision each time. Explain why it ends up almost the same whatever the rung.</li>
+      <li><strong>In your own vault, pick one theme</strong> and ask "find everything about it" from your latest note on it. Count what two clicks reach, then write the map of content that would fix it.</li>
+      <li><strong>Find three notes in your vault with no links at all</strong>. For each, decide: link it up, merge it, or leave it on purpose.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 4 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · On the bench, rung 3 (idea links only) has a lower mean recall than rung 1 (folders only): 11.5 percent against 19.1. What is the best explanation?</p>
+      <button class="qopt" type="button">A · Idea links are worse than folders and should not be used</button>
+      <button class="qopt" type="button">B · The links point at the wrong notes</button>
+      <button class="qopt" type="button">C · With about 1.2 links per note and no hub notes, two steps along links reach only 4.8 notes, while a folder listing reaches its whole folder</button>
+      <button class="qopt" type="button">D · The bench does not count backlinks on rung 3</button>
+      <p class="qwhy">Rung 3's precision is the best of the first three rungs, so the links are good. They are just short corridors. Add maps of content as crossroads and recall jumps to 84.4 percent. Backlinks are counted on every link rung.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">2 · After "link every mention of every term", the vault has 0 orphans and one connected component, and recall is 100 percent. Why is that not a better vault?</p>
+      <button class="qopt" type="button">A · It is a better vault; the numbers say so</button>
+      <button class="qopt" type="button">B · Two steps now reach 181.8 of 192 notes, so precision falls to 9.1 percent: finding everything means wading through everything</button>
+      <button class="qopt" type="button">C · Obsidian cannot display that many links</button>
+      <button class="qopt" type="button">D · The links break when you rename a note</button>
+      <p class="qwhy">Orphans and component size are counts of connection, not of meaning. When everything is two steps from everything, the neighbourhood of a note tells you nothing about it. Precision near the share of the vault on one theme is the tell.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · Ines renames 20 notes in Finder. What happens to links that pointed at them, and what does the help say happens if she renames inside Obsidian?</p>
+      <button class="qopt" type="button">A · Links to the old names now lead to notes that do not exist; inside Obsidian a rename updates the links (or prompts, if automatic updating is off)</button>
+      <button class="qopt" type="button">B · Obsidian repairs them the next time it opens</button>
+      <button class="qopt" type="button">C · Nothing: wikilinks find notes by their content</button>
+      <button class="qopt" type="button">D · The renamed notes lose their own outgoing links too</button>
+      <p class="qwhy">A wikilink is a name. Change the name where Obsidian cannot see the change and the name in every link is wrong; on the bench that is 72 broken links on rung 4. The renamed notes keep their own outgoing links, which is why a backlink still reaches them.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The link bench</span><span class="note">Breadth-first search, degree and connected components on a constructed, seeded 192-note vault; a Python reference reproduces every number exactly</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Obsidian Help: Graph view, Backlinks, Manage notes, Settings</span><span class="note">Nodes are notes and lines are links; orphans are notes without links; rename updates links, or prompts when the setting is off; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Johannes F.K. Schmidt (2018), Niklas Luhmann's Card Index, Sociologica</span><span class="note">Hub cards and poorly linked parts that fade; read at source, used to frame the rung 3 and rung 4 result</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Ines and her vault</span><span class="note">Constructed; the bench compares structures on one plausible vault and does not measure how real people search</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 4 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Recall and precision</b><span>Recall: share of the relevant notes reached. Precision: share of reached notes that are relevant.</span></div>
+      <div class="cheat-item"><b>The ladder</b><span>Folders 19.1%, tags 38.3%, idea links 11.5%, plus maps 84.4% recall.</span></div>
+      <div class="cheat-item"><b>Links need crossroads</b><span>A few links are short corridors. Hub notes turn them into a network.</span></div>
+      <div class="cheat-item"><b>Unprocessed notes miss out</b><span>A map only helps the notes that link up to it.</span></div>
+      <div class="cheat-item"><b>Link every term: a trap</b><span>0 orphans, 100.0% recall, 9.1% precision. Connected is not meaningful.</span></div>
+      <div class="cheat-item"><b>Rename inside Obsidian</b><span>Outside it, every link to the old name breaks: 72 on rung 4.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>The anti-lever made the vault look perfect in every count a graph can draw. Session 5 opens the graph view itself: what node size and lines actually encode, what the local graph and its depth slider show, and why a beautiful graph is not evidence of a useful vault.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 4 of 6 · learn-obsidian-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="03-maps-of-content-not-folders.html">← Prev: Maps of content, not folders</a> &nbsp;·&nbsp; <a href="05-what-the-graph-view-is-telling-you.html">Next: What the graph view is (and is not) telling you →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/ob-sample.js?v=1"></script>
+<script src="../assets/ob-live.js?v=3"></script>
+<script src="../assets/app.js?v=2"></script>
+</body>
+</html>

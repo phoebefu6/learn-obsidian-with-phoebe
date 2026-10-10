@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 3 of 6. A folder gives a note one place; a theme that crosses clients needs many. Compare folders, tags, links and maps of content, read how Luhmann's keyword index entered his web at one to four cards, and build one map of content with properties, search operators and an optional Bases view.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Maps of content, not folders - learn obsidian with phoebe">
+<meta property="og:description" content="Session 3 of 6. Folders, tags, links and maps of content; Luhmann's keyword index and hubs; properties, tags, search operators and Bases.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-obsidian-with-phoebe/courses/03-maps-of-content-not-folders.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-obsidian-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Maps of content, not folders - learn obsidian with phoebe">
+<meta name="twitter:description" content="Session 3 of 6. One place versus many places: maps of content, properties and search.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-obsidian-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 3 · Maps of content, not folders - learn obsidian with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-obsidian-with-phoebe</a> / Session 3 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Obsidian with Phoebe · Session 3 of 6</div>
+    <h1><span class="accent">Maps of content</span>, not folders</h1>
+    <p class="sub">Ines has seen notification fatigue at Corvid Studio and at Dunmore District Council. Her folders file each interview under one client, so the pattern lives in two places that never meet. Tonight we compare four ways to give the same notes a structure, read how Niklas Luhmann entered a web of 90,000 cards through a small keyword index, and build one map of content: a note of links on one theme that every member note points back up to.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Core</span>
+      <span class="chip audience">Anyone whose themes cross projects</span>
+      <span class="chip audience">Your vault from sessions 1 and 2</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Folders, tags, links, maps</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: one map of content</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">The running case is constructed. Ines is an invented freelance user-research consultant with four active clients (Aldermoor Care, Brightwell Mutual, Dunmore District Council and Corvid Studio) and one part-time contractor, Theo. After session 2 her vault holds atomic insight notes with sentence titles. The trouble now is getting back to them. A theme like notification fatigue shows up at two clients, in interviews, readings and insights, and no single folder can hold all of it.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = do it in your own vault</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> One working map of content for a theme you care about, with its member notes pointing back up to it through a property, a set of search strings that find candidates in seconds, and a clear sense of what folders, tags, links and maps are each good for. Underneath it, one idea: a structure is a way in, and a theme needs a way in that does not force a note into one place.</p>
+    </div>
+
+    <p><strong>Neighbours on the shelf.</strong> Folders as a filing system for projects and areas (PARA), capture and review cadence belong to <a href="https://phoebefu6.github.io/learn-pkm-with-phoebe/">PKM ↗</a>; here folders are compared only as a way to navigate. Databases for clients, projects and invoices belong to <a href="https://phoebefu6.github.io/learn-notion-with-phoebe/">Notion ↗</a>. Headings and lists inside a map note are plain <a href="https://phoebefu6.github.io/learn-markdown-with-phoebe/">Markdown ↗</a>.</p>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers four structures for the same notes</span>
+      <h2>One note, four ways to find it</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Take one insight note, "Alerts that arrive before any value get muted", and ask where it lives. In a folder it lives in exactly one place. With tags it carries labels, as long as everyone spells them the same way. With links it sits beside the notes it is about. On a map of content it is listed wherever a theme needs it. Andy Matuschak puts the principle in one line: prefer associative ontologies to hierarchical taxonomies, because "often items belong in many places" (read at source).</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 348" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four panels show the same insight note, Alerts before value get muted. Panel 1, folders: the note sits only in Clients/Corvid, while Clients/Dunmore, where the pattern was also seen, and Insights stay empty. Panel 2, tags: the note carries three drifting spellings, #notifications, #notifs and #alerts, so three tag pages each show part of the theme. Panel 3, links: the note links to Corvid interview P18, Dunmore interview P11 and Notification fatigue. Panel 4, maps of content: the note is listed on two maps, Notification fatigue (map) and Corvid Studio (map), and is highlighted in amber.">
+        <defs>
+          <filter id="o3aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="53" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="o3aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#6741C4" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="o3aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o3aH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o3aL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o3aS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o3aB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o3aA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o3aN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o3aH" x="30" y="26">ONE INSIGHT NOTE, FOUR WAYS TO FIND IT</text>
+
+        <g filter="url(#o3aSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="24" y="46" width="200" height="262" rx="10" transform="rotate(-0.4 124 177)" fill="#FFFFFF"/>
+          <rect x="240" y="46" width="200" height="262" rx="10" transform="rotate(0.3 340 177)" fill="#FFFFFF"/>
+          <rect x="456" y="46" width="200" height="262" rx="10" transform="rotate(-0.3 556 177)" fill="#FFFFFF"/>
+          <rect x="672" y="46" width="200" height="262" rx="10" transform="rotate(0.4 772 177)" fill="#FFFFFF"/>
+
+          <rect x="36" y="96" width="176" height="74" rx="6" fill="#F5F1FD"/>
+          <rect x="48" y="122" width="152" height="42" rx="6" transform="rotate(-1.5 124 143)" fill="#FFFFFF"/>
+          <rect x="36" y="180" width="176" height="42" rx="6" fill="#FFFFFF" stroke-dasharray="5 4"/>
+          <rect x="36" y="232" width="176" height="42" rx="6" fill="#FFFFFF" stroke-dasharray="5 4"/>
+
+          <rect x="256" y="96" width="168" height="42" rx="6" transform="rotate(1.2 340 117)" fill="#FFFFFF"/>
+          <rect x="264" y="154" width="152" height="26" rx="13" fill="#F5F1FD"/>
+          <rect x="264" y="190" width="152" height="26" rx="13" fill="#F5F1FD"/>
+          <rect x="264" y="226" width="152" height="26" rx="13" fill="#F5F1FD"/>
+
+          <rect x="472" y="96" width="168" height="42" rx="6" transform="rotate(-1.2 556 117)" fill="#FFFFFF"/>
+          <path d="M480 140 L480 249"/>
+          <path d="M480 173 L492 173" marker-end="url(#o3aAr)"/>
+          <path d="M480 211 L492 211" marker-end="url(#o3aAr)"/>
+          <path d="M480 249 L492 249" marker-end="url(#o3aAr)"/>
+          <rect x="496" y="160" width="148" height="26" rx="6" transform="rotate(1 570 173)" fill="#F5F1FD"/>
+          <rect x="496" y="198" width="148" height="26" rx="6" transform="rotate(-1 570 211)" fill="#F5F1FD"/>
+          <rect x="496" y="236" width="148" height="26" rx="6" transform="rotate(0.8 570 249)" fill="#F5F1FD"/>
+
+          <rect x="696" y="94" width="168" height="38" rx="6" transform="rotate(-1 780 113)" fill="#F5F1FD"/>
+          <rect x="696" y="144" width="168" height="32" rx="6" transform="rotate(1 780 160)" fill="#F5F1FD"/>
+          <rect x="696" y="214" width="168" height="42" rx="6" transform="rotate(-1.4 780 235)" fill="#FDF3E3" stroke="#A15C07"/>
+          <path d="M780 178 L780 210" marker-end="url(#o3aAr)"/>
+          <path d="M694 113 C680 122 680 226 692 234" marker-end="url(#o3aAr)"/>
+        </g>
+
+        <text class="o3aA" x="40" y="70">1 · FOLDERS</text>
+        <text class="o3aL" x="48" y="114">Clients/Corvid</text>
+        <text class="o3aL" x="58" y="140">Alerts before</text>
+        <text class="o3aL" x="58" y="157">value get muted</text>
+        <text class="o3aL" x="48" y="198">Clients/Dunmore</text>
+        <text class="o3aS" x="48" y="214">seen here too</text>
+        <text class="o3aL" x="48" y="250">Insights</text>
+        <text class="o3aS" x="48" y="266">would fit here too</text>
+        <text class="o3aS" x="40" y="296">one place per note</text>
+
+        <text class="o3aA" x="256" y="70">2 · TAGS</text>
+        <text class="o3aL" x="268" y="114">Alerts before</text>
+        <text class="o3aL" x="268" y="131">value get muted</text>
+        <text class="o3aL" x="278" y="172">#notifications</text>
+        <text class="o3aL" x="278" y="208">#notifs</text>
+        <text class="o3aL" x="278" y="244">#alerts</text>
+        <text class="o3aS" x="256" y="272">3 spellings, 3 tag pages</text>
+        <text class="o3aS" x="256" y="296">labels drift apart</text>
+
+        <text class="o3aA" x="472" y="70">3 · LINKS</text>
+        <text class="o3aL" x="484" y="114">Alerts before</text>
+        <text class="o3aL" x="484" y="131">value get muted</text>
+        <text class="o3aS" x="506" y="177">Corvid interview P18</text>
+        <text class="o3aS" x="506" y="215">Dunmore interview P11</text>
+        <text class="o3aS" x="506" y="253">Notification fatigue</text>
+        <text class="o3aS" x="472" y="296">linked by idea</text>
+
+        <text class="o3aA" x="688" y="70">4 · MAPS OF CONTENT</text>
+        <text class="o3aL" x="708" y="110">Notification fatigue</text>
+        <text class="o3aS" x="708" y="125">(map)</text>
+        <text class="o3aL" x="708" y="165">Corvid Studio (map)</text>
+        <text class="o3aB" x="708" y="232">Alerts before</text>
+        <text class="o3aB" x="708" y="249">value get muted</text>
+        <text class="o3aS" x="688" y="296">listed on two maps</text>
+
+        <text class="o3aN" x="30" y="332">Constructed. Only links and maps let one note sit in more than one place without a copy.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the folder holds the note once, the tags split it three ways, and the amber note sits on two maps at once</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>One place versus many places<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Folders</strong> give every note exactly one home. That is their strength for files you finish and archive, and their weakness for ideas. Ines filed the insight under Clients/Corvid because that is where she first saw it, and the Dunmore evidence now sits in a different branch that nothing connects. Session 4's bench gives folders some credit: a folder listing does find neighbours, as long as the question happens to match the way you filed.</p>
+        <p><strong>Tags</strong> let a note carry several labels, which beats one folder. The catch is human: tags drift. One month it is #notifications, the next #notifs, and a contractor writes #alerts. Each spelling has its own tag page. <strong>Links</strong> join notes by idea, the way session 1 built them, but a sparse handful of links gives you very few ways in. <strong>Maps of content</strong> are notes whose job is to list other notes on one theme, which turns out to be the piece that makes links pay off (Part 2).</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Luhmann had sections too<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Luhmann's essay is often quoted as proof that a slip box needs no hierarchy. He did decide "against the systematic ordering in accordance with topics and sub-topics", choosing instead a fixed number for every slip, and wrote that "the fixed filing place needs no system" (Luhmann, "Communicating with Slip Boxes", read).</p>
+        <p>Yet the archive tells a more mixed story. Johannes Schmidt's 2018 account of the card index (read) describes a first collection of about 23,000 cards in 108 subject sections, and a second of about 67,000 cards under eleven top-level sections with about 100 subsections. Both statements are true at once: Luhmann used broad top-level areas, then refused any taxonomy inside them, where numbering and links took over. People who say "Luhmann used no categories" and people who say "he filed by subject" are each holding half of it. The sources support the split, not either slogan.</p>
+        <p>For your vault that suggests a modest rule rather than a doctrine: a few broad folders for kinds of file can coexist with maps for themes. What breaks is asking a folder to do a theme's job.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The finding filed under the wrong client.</strong> A familiar pattern: a consultant spots the same problem at a second client, searches the second client's folder, finds nothing, and writes the insight again from scratch. Months later there are two near-identical notes in two folders, each with half the evidence. A theme that crosses clients needs a home that is not a client.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers hubs and the keyword index</span>
+      <h2>A few ways in, then the links do the rest</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Luhmann had no search box, so he kept a keyword index. Schmidt (2018, read) reports something surprising about it: for each term it listed "only one to four places". The index did not try to catalogue every card on a topic. It pointed at a handful of entry cards, and from there the links led on. Cards with an above-average number of links, which Schmidt calls hubs, gave access to large parts of the file.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 344" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="On the left, a keyword index, highlighted in amber, lists terms that each point to one to four entry cards; it grew from about 1,250 to 3,200 entries. Three arrows enter the web at three entry cards. All three link to a hub card with many links, from which links fan out to five more cards. At the bottom right, a cluster of three hatched cards links only to itself and is labelled black hole: poorly linked, fades away.">
+        <defs>
+          <filter id="o3bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="61" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="o3bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#6741C4" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="o3bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o3bH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o3bL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o3bS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o3bB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o3bA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o3bN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o3bH" x="30" y="26">THE INDEX ENTERS THE WEB; THE LINKS CARRY YOU FURTHER</text>
+
+        <g filter="url(#o3bSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="60" width="210" height="170" rx="10" transform="rotate(-0.6 135 145)" fill="#FDF3E3" stroke="#A15C07"/>
+          <path d="M44 122 L226 122 M44 150 L226 150" stroke="#D4D2DE" stroke-width="1.2"/>
+
+          <path d="M244 112 L326 90" marker-end="url(#o3bAr)"/>
+          <path d="M244 140 L326 158" marker-end="url(#o3bAr)"/>
+          <path d="M244 168 L326 226" marker-end="url(#o3bAr)"/>
+
+          <rect x="330" y="74" width="60" height="28" rx="6" transform="rotate(-2 360 88)" fill="#FFFFFF"/>
+          <rect x="330" y="144" width="60" height="28" rx="6" transform="rotate(1.5 360 158)" fill="#FFFFFF"/>
+          <rect x="330" y="214" width="60" height="28" rx="6" transform="rotate(-1 360 228)" fill="#FFFFFF"/>
+
+          <path d="M392 90 L476 144"/>
+          <path d="M392 158 L476 156"/>
+          <path d="M392 228 L476 172"/>
+
+          <rect x="480" y="134" width="96" height="44" rx="10" transform="rotate(0.8 528 156)" fill="#F5F1FD"/>
+
+          <path d="M560 134 L580 88"/>
+          <path d="M576 144 L640 84"/>
+          <path d="M576 156 L680 143"/>
+          <path d="M576 170 L640 210"/>
+          <path d="M540 178 L580 230"/>
+          <path d="M664 92 L700 130"/>
+          <path d="M700 156 L664 200"/>
+
+          <rect x="560" y="60" width="44" height="26" rx="5" transform="rotate(2 582 73)" fill="#FFFFFF"/>
+          <rect x="640" y="66" width="44" height="26" rx="5" transform="rotate(-2 662 79)" fill="#FFFFFF"/>
+          <rect x="680" y="130" width="44" height="26" rx="5" transform="rotate(1.5 702 143)" fill="#FFFFFF"/>
+          <rect x="640" y="200" width="44" height="26" rx="5" transform="rotate(-1.5 662 213)" fill="#FFFFFF"/>
+          <rect x="560" y="230" width="44" height="26" rx="5" transform="rotate(2.5 582 243)" fill="#FFFFFF"/>
+
+          <path d="M790 220 L820 236"/>
+          <path d="M830 258 L812 268"/>
+          <rect x="752" y="200" width="40" height="22" rx="5" transform="rotate(-3 772 211)" fill="url(#o3bHc)"/>
+          <rect x="818" y="234" width="40" height="22" rx="5" transform="rotate(2 838 245)" fill="url(#o3bHc)"/>
+          <rect x="770" y="262" width="40" height="22" rx="5" transform="rotate(-2 790 273)" fill="url(#o3bHc)"/>
+        </g>
+
+        <text class="o3bB" x="46" y="86">KEYWORD INDEX</text>
+        <text class="o3bL" x="46" y="114">a term: 1 to 4 cards</text>
+        <text class="o3bL" x="46" y="142">a term: 1 to 4 cards</text>
+        <text class="o3bL" x="46" y="170">a term: 1 to 4 cards</text>
+        <text class="o3bS" x="46" y="200">about 1,250 entries, then</text>
+        <text class="o3bS" x="46" y="215">3,200 in the second box</text>
+
+        <text class="o3bA" x="330" y="56">ENTRY CARDS</text>
+        <text class="o3bB" x="528" y="153" text-anchor="middle">HUB</text>
+        <text class="o3bS" x="528" y="169" text-anchor="middle">many links</text>
+        <text class="o3bA" x="740" y="80">LINKS FAN OUT</text>
+
+        <text class="o3bB" x="752" y="306">BLACK HOLE</text>
+        <text class="o3bS" x="752" y="321">poorly linked, fades away</text>
+
+        <text class="o3bN" x="30" y="306">Schmidt 2018 (read): one to four places</text>
+        <text class="o3bN" x="30" y="322">per term; links did the rest.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the amber index names only a few doors; the hub opens most of the house, and the hatched cluster nobody links to fades</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>A map is an entry point, not a folder<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A <strong>map of content</strong> (MOC) is an ordinary note whose body is links on one theme, usually grouped under a few headings with a line on why each link is there. The term is popularised by Nick Milo's Linking Your Thinking (reported; his pages were not read at source). Functionally it is Luhmann's index entry and Schmidt's hub rolled into one note you can edit: a small number of doors into a theme, after which each member note's own links carry you on.</p>
+        <p>The difference from a folder is the one that matters for Ines. A note can be listed on as many maps as it belongs to, and listing it moves nothing. The insight stays where it is, and the Corvid map and the notification fatigue map both point at it. Session 4's bench puts a number on the effect: adding maps of content lifts mean recall from 11.5% with idea links only to 84.4% (modelled, computed on a constructed vault). Sparse idea links on their own did worse than folders or tags there; the maps are what made them pay.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Maps grow from links, not the other way round<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Schmidt also describes the opposite of a hub. Poorly linked parts of the file "tend to remain isolated later on and hence fade away", and some parts "seemed to be untouched since their compilation" (Schmidt 2018, read). He calls them black holes. A note nobody links to is, in practice, a note nobody finds.</p>
+        <p>That sets the order of work. Do not draw up twelve empty maps on day one and then hunt for notes to fill them; that is a folder tree with extra steps. Write and link notes as sessions 1 and 2 taught, and make a map when a theme has enough members that you keep losing track of them. Ten or more notes is a reasonable trigger. The map then records a structure that already exists in the links, and gives it a front door.</p>
+        <p>Luhmann's own warning applies here as well: "A note that is not connected to this network will get lost" (Luhmann, read). A map rescues only the notes that are on it.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The index page nobody updates.</strong> A familiar pattern: a team wiki opens with a grand contents page listing every document. Within a year half the entries are dead and new pages never got added, because one page was trying to list everything. Small maps that each cover one theme, and that member notes point up to, stay current because each one is small enough to keep.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers Obsidian's tools for structure</span>
+      <h2>Properties, tags and search: the parts a map is built from</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Obsidian gives you four tools that work on the same plain files. Properties put structured fields at the top of a note. Tags label notes, nested if you like. Search operators find notes by path, tag, line, section or property. Bases shows notes as database-like views over their properties. Write a field once in a note's front matter and three different readers can use it.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 336" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="On the left, the front matter of the note Alerts before value get muted, highlighted in amber: type insight, theme notification fatigue, up as a quoted wikilink to Notification fatigue (map), and a tags list with notifications. Three arrows lead to three readers on the right: a search query using the type property and the notifications tag; a Bases table whose rows are notes where type is insight, with theme and up columns; and the map, which the up property points each member note to.">
+        <defs>
+          <filter id="o3cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="71" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <marker id="o3cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o3cH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o3cL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o3cS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o3cB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o3cA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o3cN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o3cH" x="30" y="26">WRITE A FIELD ONCE, READ IT THREE WAYS</text>
+
+        <g filter="url(#o3cSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="50" width="360" height="246" rx="10" transform="rotate(-0.5 210 173)" fill="#FDF3E3" stroke="#A15C07"/>
+          <rect x="520" y="50" width="330" height="66" rx="8" transform="rotate(0.8 685 83)" fill="#FFFFFF"/>
+          <rect x="520" y="140" width="330" height="66" rx="8" transform="rotate(-0.6 685 173)" fill="#F5F1FD"/>
+          <rect x="520" y="230" width="330" height="66" rx="8" transform="rotate(0.5 685 263)" fill="#FFFFFF"/>
+          <path d="M394 110 C440 104 470 90 514 84" marker-end="url(#o3cAr)"/>
+          <path d="M394 172 L514 172" marker-end="url(#o3cAr)"/>
+          <path d="M394 236 C440 244 470 258 514 262" marker-end="url(#o3cAr)"/>
+        </g>
+
+        <text class="o3cB" x="50" y="76">Alerts that arrive before any value get muted</text>
+        <text class="o3cL" x="50" y="104">---</text>
+        <text class="o3cL" x="50" y="126">type: insight</text>
+        <text class="o3cL" x="50" y="148">theme: notification fatigue</text>
+        <text class="o3cL" x="50" y="170">up: "[[Notification fatigue (map)]]"</text>
+        <text class="o3cL" x="50" y="192">tags:</text>
+        <text class="o3cL" x="50" y="214">  - notifications</text>
+        <text class="o3cL" x="50" y="236">---</text>
+        <text class="o3cS" x="50" y="264">People mute the app before it has helped them.</text>
+        <text class="o3cS" x="50" y="282">Seen at Corvid and Dunmore.</text>
+
+        <text class="o3cA" x="536" y="74">SEARCH</text>
+        <text class="o3cL" x="536" y="98">[type:insight] tag:#notifications</text>
+        <text class="o3cA" x="536" y="164">BASES TABLE</text>
+        <text class="o3cL" x="536" y="188">rows: type is insight · columns: theme, up</text>
+        <text class="o3cA" x="536" y="254">THE MAP</text>
+        <text class="o3cL" x="536" y="278">up: points the note to its map</text>
+
+        <text class="o3cN" x="30" y="322">Constructed note. One set of fields, three readers, and the file stays plain text.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the amber front matter is written once; search, a Bases view and the map all read the same fields</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Properties and tags, by the help's rules<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Properties</strong> live in a block at the very start of a file that opens and closes with <span class="mono">---</span>. Each property has a type: Text, List, Number, Checkbox, Date, Date &amp; time or Tags. Obsidian ships three default properties, <span class="mono">tags</span>, <span class="mono">aliases</span> and <span class="mono">cssclasses</span>. Once you give a property name a type, that type applies to that name across the whole vault, so decide early whether <span class="mono">theme</span> is Text or List. The help also notes that a hashtag typed inside a text property does not create a tag.</p>
+        <p><strong>Tags</strong> go in the text as <span class="mono">#tag</span> or in the <span class="mono">tags</span> property as a list. Nest them with a slash, as in <span class="mono">#inbox/to-read</span>. Allowed characters are letters, numbers, underscore, hyphen and slash; a tag needs at least one non-numeric character (<span class="mono">#1984</span> is not valid); tags have no spaces and are case-insensitive. Case-insensitive does not mean spelling-insensitive: #Notifications and #notifications are one tag, #notifs is another.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Search operators that find candidates<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Obsidian's search accepts operators that narrow a query. The ones a map builder uses most: <span class="mono">path:</span> limits to a folder path, <span class="mono">tag:</span> finds a tag, <span class="mono">line:</span> needs all the words on one line, <span class="mono">section:</span> needs them under one heading, and <span class="mono">[property:value]</span> matches a property. A nested-tag detail is worth remembering: <span class="mono">tag:inbox</span> also matches <span class="mono">#inbox/to-read</span>, but <span class="mono">tag:#work</span> does not return <span class="mono">#myjob/work</span>.</p>
+        <div class="prompt-box good"><span class="label">Candidate searches for one theme</span>tag:#notifications OR "notification fatigue"
+path:Insights "notification"
+line:(muted alerts)
+[type:insight]</div>
+        <p>The help lists more operators (file:, content:, block:, task:); check the current help, because search syntax gains options with releases.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Bases: a view over properties, not a database<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Bases is a core plugin for what the help calls "database-like views of your notes". The data stays in your Markdown files and their properties; the view is saved as a <span class="mono">.base</span> file or embedded in a code block. Layouts include Table, List, Cards, Kanban and Map. For a map of content, a Table of every note with <span class="mono">type: insight</span> and a <span class="mono">theme</span> column is a fast way to spot members you forgot to list.</p>
+        <p>That is as far as Bases goes here. Running clients, projects and invoices from database records is a different job, and Ines does it in <a href="https://phoebefu6.github.io/learn-notion-with-phoebe/">Notion ↗</a>. Bases is new and changes often, so check the current help before relying on a menu name.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <p><strong>Pick a few properties and keep them.</strong> Three fields used on every note (<span class="mono">type</span>, <span class="mono">theme</span>, <span class="mono">up</span>) beat twelve used now and then. A property only helps a search or a view if it is filled in on the notes you are looking for.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Ines's notification fatigue map</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">Build one map of content for one theme in your own vault. Ines's constructed map is the worked example: four headed sections of links, each with a sentence saying why, and member notes that point back up to it through a property. Swap in a theme from your own work if you have one with ten or more notes.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 368" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="In the centre, Ines's map note Notification fatigue (map), highlighted in amber, with four sections: Insights, listing Alerts that arrive before any value get muted and Value after effort; Readings, listing a reading note on notification design; Evidence by client, listing Corvid interview P18 and Dunmore interview P11; and Open questions, asking whether muting predicts churn. On the left, three member notes each carry an up property and send an arrow into the map. On the right, an unprocessed Brightwell interview has no up property and no arrow, labelled the map never reaches it.">
+        <defs>
+          <filter id="o3dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="83" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <marker id="o3dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o3dH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o3dL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o3dS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o3dB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o3dA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o3dN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o3dH" x="30" y="26">A MAP LISTS ITS MEMBERS; MEMBERS POINT BACK UP</text>
+
+        <g filter="url(#o3dSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="70" width="180" height="50" rx="8" transform="rotate(-2 120 95)" fill="#FFFFFF"/>
+          <rect x="30" y="160" width="180" height="50" rx="8" transform="rotate(1.5 120 185)" fill="#FFFFFF"/>
+          <rect x="30" y="250" width="180" height="50" rx="8" transform="rotate(-1 120 275)" fill="#FFFFFF"/>
+          <path d="M214 95 L254 95" marker-end="url(#o3dAr)"/>
+          <path d="M214 185 L254 185" marker-end="url(#o3dAr)"/>
+          <path d="M214 275 L254 275" marker-end="url(#o3dAr)"/>
+          <rect x="260" y="50" width="370" height="276" rx="10" transform="rotate(0.4 445 188)" fill="#FDF3E3" stroke="#A15C07"/>
+          <rect x="670" y="150" width="180" height="80" rx="8" transform="rotate(2 760 190)" fill="#FFFFFF" stroke-dasharray="6 5"/>
+        </g>
+
+        <text class="o3dA" x="44" y="91">INSIGHT</text>
+        <text class="o3dS" x="44" y="108">up: the map</text>
+        <text class="o3dL" x="44" y="181">Corvid interview P18</text>
+        <text class="o3dS" x="44" y="198">up: the map</text>
+        <text class="o3dL" x="44" y="271">Dunmore interview P11</text>
+        <text class="o3dS" x="44" y="288">up: the map</text>
+
+        <text class="o3dB" x="280" y="76">Notification fatigue (map)</text>
+        <text class="o3dA" x="280" y="102">INSIGHTS</text>
+        <text class="o3dL" x="280" y="121">[[Alerts that arrive before any value ...]]</text>
+        <text class="o3dL" x="280" y="139">[[Value after effort]]</text>
+        <text class="o3dA" x="280" y="165">READINGS</text>
+        <text class="o3dL" x="280" y="184">[[Reading - notification design]]</text>
+        <text class="o3dA" x="280" y="210">EVIDENCE BY CLIENT</text>
+        <text class="o3dL" x="280" y="229">Corvid: [[2026-09-15 Corvid interview P18]]</text>
+        <text class="o3dL" x="280" y="247">Dunmore: [[Dunmore interview P11]]</text>
+        <text class="o3dA" x="280" y="273">OPEN QUESTIONS</text>
+        <text class="o3dL" x="280" y="292">Does muting predict churn?</text>
+        <text class="o3dS" x="280" y="312">one sentence per link says why</text>
+
+        <text class="o3dL" x="686" y="176">Brightwell P04</text>
+        <text class="o3dS" x="686" y="196">unprocessed: no up</text>
+        <text class="o3dS" x="686" y="214">the map never reaches it</text>
+
+        <text class="o3dN" x="30" y="352">Constructed. The dashed note mentions the theme but links to nothing, so no route reaches it.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - three notes point up into the amber map and get found; the dashed interview never got linked up, so the map cannot help it</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Choose one theme with ten or more notes.</strong> A theme is an idea that crosses projects, not a project or a client. Write down its name and a rough count before you start; the count tells you whether it deserves a map yet.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · pick the theme</span>Theme         notification fatigue
+Seen at       Corvid Studio, Dunmore District Council
+Rough count   10+ notes (interviews, readings, insights)
+Not a theme   "Corvid Studio" (a client: a folder can do that)</div>
+      </div>
+      <div class="step">
+        <p><strong>Search for candidates with operators.</strong> Open Search and run a few queries. Tag spellings drift, so search the phrase as well as the tag, and try a folder path where insights live. Note every hit that is really about the theme.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · candidate searches</span>tag:#notifications OR "notification fatigue"
+path:Insights
+tag:#notifs OR tag:#alerts
+[type:insight]</div>
+      </div>
+      <div class="step">
+        <p><strong>Create the map note with headed sections.</strong> Name it after the theme with "(map)" on the end, so it never collides with the theme's own idea note. Give it a few headings and, under each, wikilinks with one sentence saying why the note belongs. The sentence is what turns a list into a map.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · Notification fatigue (map).md</span>## Insights
+- [[Alerts that arrive before any value get muted]]: the core pattern, two clients.
+- [[Value after effort]]: why the timing matters.
+
+## Readings
+- [[Reading - notification design]]: the guidance Ines checks claims against.
+
+## Evidence by client
+- Corvid: [[2026-09-15 Corvid interview P18]]: muted on day two.
+- Dunmore: [[Dunmore interview P11]]: "pure notification fatigue".
+
+## Open questions
+- Does muting predict churn? No evidence yet.</div>
+      </div>
+      <div class="step">
+        <p><strong>Point each member note up to the map.</strong> Add an <span class="mono">up</span> property to every note you listed. A link inside a property is written as a wikilink in quotes, because unquoted square brackets mean a list in YAML. Links in properties are a newer feature: check the current help for how your version shows them in backlinks and the graph.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · front matter on each member note</span>---
+type: insight
+theme: notification fatigue
+up: "[[Notification fatigue (map)]]"
+tags:
+  - notifications
+---</div>
+      </div>
+      <div class="step">
+        <p><strong>Optional: a Bases table of insight notes.</strong> If Bases is on (Settings, Core plugins; check the current help for the exact menu), create a new base, filter to notes whose <span class="mono">type</span> is <span class="mono">insight</span>, and show <span class="mono">theme</span> and <span class="mono">up</span> as columns. Any row about the theme with an empty <span class="mono">up</span> is a member the map is missing.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · a view, saved as a file</span>File      Insights.base
+Layout    Table
+Filter    type is insight
+Columns   file name · theme · up
+Look for  theme = notification fatigue AND up is empty</div>
+      </div>
+      <div class="step">
+        <p><strong>Record the finding.</strong> Count what the map holds and, more importantly, what it still misses. Notes that mention the theme but carry no <span class="mono">up</span> and are not listed are exactly the ones the map cannot help.</p>
+        <div class="prompt-box good"><span class="label">★ Step 6 · the finding (your numbers will differ)</span>Notes listed on the map             ___
+Members with an up: property       ___
+Search hits still not linked up    ___
+The unlinked ones are usually unprocessed interviews.</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>A map helps only the notes that link to it.</strong> On session 4's bench, with maps in place, eleven of twelve questions are answered. The one that fails starts from an interview Ines never processed, so it links to no map and the routes never reach it (modelled, computed on a constructed vault). Linking a note up to its map is part of finishing the note, not a tidy-up for later.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before session 4</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Finish your first map</strong>: every candidate from step 2 is either listed with a sentence or deliberately left off, with a note to yourself on why.</li>
+      <li><strong>Fix one tag drift.</strong> Use the Tags view or a <span class="mono">tag:</span> search to find two spellings of the same idea, pick one, and change the other everywhere.</li>
+      <li><strong>Process two unprocessed notes</strong>: give each a <span class="mono">type</span>, a <span class="mono">theme</span> and an <span class="mono">up</span> property, and check the map now lists them.</li>
+      <li><strong>Write down one theme that is not ready for a map</strong> yet, with its current note count. Revisit it when it passes ten.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 3 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Ines's notification fatigue evidence comes from two clients. Why does a map of content serve the theme better than a folder?</p>
+      <button class="qopt" type="button">A · Folders cannot hold more than a few dozen notes</button>
+      <button class="qopt" type="button">B · A map copies each note into one place, so search runs faster</button>
+      <button class="qopt" type="button">C · A note has one folder but can be listed on many maps, so the theme gathers notes from both clients without moving them</button>
+      <button class="qopt" type="button">D · Obsidian ignores folders when it builds backlinks</button>
+      <p class="qwhy">A folder is one place per note. The Corvid and Dunmore interviews can stay in their client folders while the map lists both, along with the insight and the readings. Listing moves nothing and copies nothing.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · According to Schmidt (2018), what did Luhmann's keyword index do?</p>
+      <button class="qopt" type="button">A · Listed only one to four places per term, as entry points; the links between cards did the rest</button>
+      <button class="qopt" type="button">B · Listed every card on each topic, like a full catalogue</button>
+      <button class="qopt" type="button">C · Replaced links altogether by sorting cards alphabetically</button>
+      <button class="qopt" type="button">D · Grouped cards into 108 folders with no links between them</button>
+      <p class="qwhy">The index was deliberately thin: a few doors per term. From an entry card, links and hubs led into the rest of the file. A map of content plays the same role, which is why it can stay short.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · Which search finds a note tagged #inbox/to-read?</p>
+      <button class="qopt" type="button">A · path:inbox</button>
+      <button class="qopt" type="button">B · line:inbox</button>
+      <button class="qopt" type="button">C · [tags:to-read/inbox]</button>
+      <button class="qopt" type="button">D · tag:inbox</button>
+      <p class="qwhy">The help says tag:inbox matches nested tags under inbox, including #inbox/to-read. path: looks at folders, not tags, and the order of a nested tag matters. Watch the other direction too: tag:#work does not return #myjob/work.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Schmidt (2018), "Niklas Luhmann's Card Index: The Fabrication of Serendipity", Sociologica 12(1): 53-60</span><span class="note">Two collections, 108 subject sections then eleven top-level sections, the keyword index of one to four places per term, hubs and black holes; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Niklas Luhmann, "Communicating with Slip Boxes: An Empirical Account", trans. Manfred Kuehn</span><span class="note">The decision against topical ordering, the fixed filing place, a note not connected to the network gets lost; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Andy Matuschak, "Prefer associative ontologies to hierarchical taxonomies"</span><span class="note">"Often items belong in many places"; read at source</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Nick Milo, Linking Your Thinking</span><span class="note">The term "map of content" as popularised there; reported, his pages were not read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Obsidian Help: Properties, Tags, Search, Introduction to Bases and Views</span><span class="note">Property types and defaults, tag rules and nesting, search operators, Bases layouts and .base files; read at source</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">PKM seam</span><span class="note">PARA folders, capture and review belong to Learn PKM; folders appear here only as a navigation structure</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Ines and her vault</span><span class="note">Constructed; bench figures are modelled on a constructed vault; the help pages were read in October 2026 and features change, so check the current help before relying on a menu name</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 3 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Four structures</b><span>Folders: one place. Tags: labels that drift. Links: by idea. Maps: many places, one theme.</span></div>
+      <div class="cheat-item"><b>Map of content</b><span>A note of links on one theme, under a few headings, one sentence per link saying why.</span></div>
+      <div class="cheat-item"><b>A few doors</b><span>Luhmann's index gave one to four places per term. A map is a way in; links do the rest.</span></div>
+      <div class="cheat-item"><b>Point up</b><span>up: "[[Theme (map)]]" on every member, in quotes. A map helps only notes that link to it.</span></div>
+      <div class="cheat-item"><b>Search operators</b><span>path: tag: line: section: [property:value]. tag:inbox matches #inbox/to-read.</span></div>
+      <div class="cheat-item"><b>Properties and Bases</b><span>Types apply vault-wide. Bases shows views over properties, saved as .base files.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>Folders, tags, idea links, maps: which one actually gets you to the right notes? Session 4 runs all four on Ines's 192-note constructed vault and measures recall, precision and how many questions each answers, including the result nobody expects: sparse links alone do worse than folders.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 3 of 6 · learn-obsidian-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="02-atomic-notes-and-their-address.html">← Prev: Atomic notes and the address they keep</a> &nbsp;·&nbsp; <a href="04-the-link-bench.html">Next: The link bench →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=2"></script>
+</body>
+</html>

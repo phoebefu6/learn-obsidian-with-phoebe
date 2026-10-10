@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 5 of 6. The graph view draws notes as circles and links as lines, sizes a node by how many notes link to it, and lays everything out with physics. Read the global and local graph for what they encode, and see why a perfectly connected graph can be a worse vault.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="What the graph view is (and is not) telling you - learn obsidian with phoebe">
+<meta property="og:description" content="Session 5 of 6. Node size, lines, forces, the local graph and its depth slider, orphans, and why a denser graph can be a worse vault.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-obsidian-with-phoebe/courses/05-what-the-graph-view-is-telling-you.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-obsidian-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What the graph view is (and is not) telling you - learn obsidian with phoebe">
+<meta name="twitter:description" content="Session 5 of 6. What the graph view encodes, what the local graph shows, and why a rounder graph is not proof.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-obsidian-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 5 · What the graph view is (and is not) telling you - learn obsidian with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-obsidian-with-phoebe</a> / Session 5 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Obsidian with Phoebe · Session 5 of 6</div>
+    <h1>What the <span class="accent">graph view</span> is (and is not) telling you</h1>
+    <p class="sub">The graph view is the most screenshotted thing in Obsidian, and the most misread. It draws exactly two things, notes and the links between them, and lets physics decide where they sit. Tonight we read it the way the help describes it: what a circle, a line and a big node actually mean, what the local graph shows at depth 1 and depth 2, and why the session 4 anti-lever produced the most beautiful graph on the bench and the worst neighbourhood. By the end you can look at your own graph and say what it proves, and what it cannot.</p>
+    <div class="chip-row">
+      <span class="chip level">🟠 Deeper</span>
+      <span class="chip audience">Anyone with a vault of 30+ notes</span>
+      <span class="chip audience">Obsidian installed, free</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Reading the picture</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: read one local graph</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">Ines is constructed: an invented freelance user-research consultant with four active clients (Aldermoor Care, Brightwell Mutual, Dunmore District Council and Corvid Studio) and one part-time contractor, Theo. Her vault now has interview notes, reading notes, insight notes, daily notes and, since session 3, a map of content for each theme. In session 4 she watched a bench walk two steps out from a note and count what it found. Tonight she opens the graph view for the first time with that bench in her head, and asks a sharper question than "does it look connected?": "what is this picture actually drawing?"</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = do it in your own vault</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> A reading of your own local graph at depth 1 and depth 2, a list of five orphans with a decision next to each, colour groups that separate insight notes from daily notes, one search filter that shows you what the noise was, and a three-sentence finding about your vault. Underneath it, one habit: treat the graph as a drawing of links, never as a score.</p>
+    </div>
+
+    <p><strong>Neighbours on the shelf.</strong> The graph view is not a mind map: it is drawn by the app from your links, while a radial map is drawn by you from a centre, which is <a href="https://phoebefu6.github.io/learn-mind-mapping-with-phoebe/">Mind Mapping ↗</a>. How often you review and tidy notes in any tool is <a href="https://phoebefu6.github.io/learn-pkm-with-phoebe/">PKM ↗</a>. Reading what the links you already have are saying is the subject here.</p>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers what the global graph encodes</span>
+      <h2>Circles, lines and a lot of physics</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">The help is short and precise about the graph view: "Circles represent notes" and "Lines represent internal links". The more notes reference a note, the bigger its circle. That is the whole encoding. Everything else on the screen, the clusters, the gaps, the pleasing spiral, comes from a physics simulation that pushes circles apart and pulls linked ones together.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Left: a small corner of a constructed graph. One large circle has six lines to smaller circles, three circles are filled with a group colour, and one small circle on its own is an orphan. Right: a legend mapping each visual channel to what it means. A circle is a note. A line is an internal link. Size is how many notes link in. Colour is a group you defined. Position comes from forces only and means nothing; this row is highlighted in amber.">
+        <defs>
+          <filter id="o5aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="51" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="o5aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#6741C4" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="o5aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o5aH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o5aL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o5aS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o5aB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o5aA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o5aN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o5aH" x="30" y="26">FIVE VISUAL CHANNELS, AND WHAT EACH ONE MEANS</text>
+
+        <g filter="url(#o5aSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="42" width="390" height="256" rx="10" transform="rotate(-0.4 225 170)" fill="#FFFFFF"/>
+          <path d="M220 170 L130 100 M220 170 L300 90 M220 170 L340 190 M220 170 L290 260 M220 170 L150 250 M220 170 L100 175 M300 90 L380 120 M130 100 L60 110" stroke-width="1.6"/>
+          <circle cx="220" cy="170" r="24" fill="#F5F1FD"/>
+          <circle cx="130" cy="100" r="9" fill="#FFFFFF"/>
+          <circle cx="300" cy="90" r="11" fill="#DCD2F4"/>
+          <circle cx="340" cy="190" r="9" fill="#DCD2F4"/>
+          <circle cx="290" cy="260" r="8" fill="#FFFFFF"/>
+          <circle cx="150" cy="250" r="10" fill="#FFFFFF"/>
+          <circle cx="100" cy="175" r="8" fill="#FFFFFF"/>
+          <circle cx="380" cy="120" r="6" fill="#DCD2F4"/>
+          <circle cx="60" cy="110" r="6" fill="#FFFFFF"/>
+          <circle cx="66" cy="272" r="6" fill="#FFFFFF"/>
+
+          <rect x="452" y="200" width="384" height="48" rx="8" transform="rotate(0.4 644 224)" fill="#FDF3E3" stroke="#A15C07"/>
+          <circle cx="475" cy="72" r="8" fill="#FFFFFF"/>
+          <path d="M463 122 L489 122" stroke-width="1.8"/>
+          <circle cx="468" cy="172" r="5" fill="#FFFFFF"/>
+          <circle cx="486" cy="172" r="10" fill="#FFFFFF"/>
+          <circle cx="475" cy="224" r="6" fill="#FFFFFF"/>
+          <path d="M483 224 L494 224 M467 224 L456 224" stroke-width="1.4" marker-end="url(#o5aAr)"/>
+          <circle cx="475" cy="276" r="8" fill="#DCD2F4"/>
+        </g>
+
+        <text class="o5aA" x="46" y="62">A CORNER OF A GRAPH (constructed)</text>
+        <text class="o5aS" x="80" y="276">orphan: no links</text>
+
+        <text class="o5aL" x="510" y="70">Circle = a note</text>
+        <text class="o5aS" x="510" y="86">every Markdown file in the vault</text>
+        <text class="o5aL" x="510" y="120">Line = an internal link</text>
+        <text class="o5aS" x="510" y="136">no arrow: direction is not drawn</text>
+        <text class="o5aL" x="510" y="170">Size = how many notes link in</text>
+        <text class="o5aS" x="510" y="186">a count, not a measure of importance</text>
+        <text class="o5aB" x="510" y="220">Position = forces only: it means nothing</text>
+        <text class="o5aS" x="510" y="236">drag a node and nothing in the vault changes</text>
+        <text class="o5aL" x="510" y="274">Colour = a group you defined</text>
+        <text class="o5aS" x="510" y="290">a search term you wrote, painted on</text>
+
+        <text class="o5aN" x="30" y="322">Close two circles on screen are not close ideas. Distance is the physics, not the meaning.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - four channels carry your data; the amber one, position, carries only the layout settings</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Three things the picture encodes<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Read the graph with three questions and nothing else. <strong>Which notes exist?</strong> Every circle is a note. <strong>Which notes are joined?</strong> Every line is an internal link, the same wikilinks from session 1, read from the metadata cache that the help says powers the graph view. <strong>Which notes do many others point at?</strong> Bigger circles have more notes referencing them. Hover over a circle and its connections light up while the rest fades, which is the quickest way to see one note's neighbourhood in the whole vault.</p>
+        <p>Notice what is missing. Size counts links in; it does not know whether those links came from twelve thoughtful insight notes or twelve daily notes that each mention a client name. A daily note that says "Corvid call" every morning can grow a client note into the biggest circle on the screen. Big means referenced, not important.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Forces are a layout, not a finding<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The graph settings include four forces: <strong>center</strong> pulls everything toward the middle, <strong>repel</strong> pushes circles apart, <strong>link force</strong> pulls linked circles together, and <strong>link distance</strong> sets how long a line wants to be. Change them and the same vault becomes a tight ball, a loose cloud or a spiral. Nothing in your notes changed. A cluster that "emerges" is often just a set of notes that share one hub, and turning repel up will scatter it again.</p>
+        <p>The settings also offer a time-lapse animation that adds notes in the order they were created. It is a pleasant way to watch a vault grow, and a fair record of when you wrote things. It is not a record of when ideas connected: a link written today to a note from last year appears with the older note. Menu names move between releases, so check the current help for where these settings sit.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The cluster that was a client name.</strong> A familiar pattern: a researcher spots a dense knot in their graph, assumes it is a theme they had not noticed, and spends an evening on it. Hovering shows the knot is every note that mentions one client, held together by the client note in the middle. The graph was right about the links. The reading added a meaning the links never carried.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the local graph and depth</span>
+      <h2>Two steps out from the note you have open</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">The global graph shows the whole vault at once, which is why it mostly looks like weather. The local graph shows only the notes connected to the active note, and a depth slider decides how far out it reaches. The help's wording is exact: "Each level of depth will show notes connected to the notes revealed at the previous depth." Depth 2 is the neighbourhood the session 4 bench measured.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 412" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Concentric rings around one open insight note. At depth 1 sit three notes: its map of content, an interview, and a daily note. At depth 2 the map opens four theme notes, the interview reaches one more theme note and one project note, and the daily note reaches four unrelated daily and project notes. The map at depth 1 is highlighted in amber. On the right, the rung 4 bench result: 23.0 notes within two steps at 66.6 percent precision, modelled.">
+        <defs>
+          <filter id="o5bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="57" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="o5bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#6741C4" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="o5bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o5bH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o5bL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o5bS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o5bB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o5bV { font: 800 14px Inter, sans-serif; fill: #45288A; }
+          .o5bA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o5bN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o5bH" x="30" y="26">LOCAL GRAPH: EACH DEPTH ADDS THE NEIGHBOURS OF THE LAST</text>
+
+        <g filter="url(#o5bSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="300" cy="210" r="80" stroke="#D4D2DE" stroke-width="1.4" stroke-dasharray="5 6"/>
+          <circle cx="300" cy="210" r="160" stroke="#D4D2DE" stroke-width="1.4" stroke-dasharray="5 6"/>
+          <path d="M300 210 L351 149 M300 210 L225 183 M300 210 L260 279" stroke-width="1.8"/>
+          <path d="M351 149 L328 52 M351 149 L380 71 M351 149 L423 107 M351 149 L450 155" stroke-width="1.6"/>
+          <path d="M225 183 L142 182 M225 183 L169 118" stroke-width="1.6"/>
+          <path d="M260 279 L272 368 M260 279 L208 341 M260 279 L169 302 M260 279 L341 364" stroke="#62616F" stroke-width="1.4"/>
+          <circle cx="300" cy="210" r="16" fill="#F5F1FD"/>
+          <circle cx="351" cy="149" r="13" fill="#FDF3E3" stroke="#A15C07"/>
+          <circle cx="225" cy="183" r="9" fill="#FFFFFF"/>
+          <circle cx="260" cy="279" r="9" fill="#FFFFFF" stroke="#62616F"/>
+          <circle cx="328" cy="52" r="8" fill="#DCD2F4"/>
+          <circle cx="380" cy="71" r="8" fill="#DCD2F4"/>
+          <circle cx="423" cy="107" r="8" fill="#DCD2F4"/>
+          <circle cx="450" cy="155" r="8" fill="#DCD2F4"/>
+          <circle cx="142" cy="182" r="8" fill="#DCD2F4"/>
+          <circle cx="169" cy="118" r="7" fill="#FFFFFF" stroke="#62616F"/>
+          <circle cx="272" cy="368" r="7" fill="#FFFFFF" stroke="#62616F"/>
+          <circle cx="208" cy="341" r="7" fill="#FFFFFF" stroke="#62616F"/>
+          <circle cx="169" cy="302" r="7" fill="#FFFFFF" stroke="#62616F"/>
+          <circle cx="341" cy="364" r="7" fill="#FFFFFF" stroke="#62616F"/>
+
+          <circle cx="556" cy="88" r="7" fill="#FDF3E3" stroke="#A15C07"/>
+          <circle cx="556" cy="136" r="7" fill="#DCD2F4"/>
+          <circle cx="556" cy="184" r="7" fill="#FFFFFF" stroke="#62616F"/>
+          <circle cx="556" cy="232" r="7" fill="#F5F1FD"/>
+          <rect x="540" y="270" width="300" height="76" rx="8" transform="rotate(-0.5 690 308)" fill="#F5F1FD"/>
+        </g>
+
+        <text class="o5bS" x="222" y="124" text-anchor="middle">depth 1</text>
+        <text class="o5bS" x="166" y="64" text-anchor="middle">depth 2</text>
+
+        <text class="o5bA" x="540" y="60">READING ONE LOCAL GRAPH (constructed)</text>
+        <text class="o5bB" x="574" y="86">the map, at depth 1</text>
+        <text class="o5bS" x="574" y="102">opens its whole theme at depth 2</text>
+        <text class="o5bL" x="574" y="134">theme notes, at depth 2</text>
+        <text class="o5bS" x="574" y="150">the ones you wanted to reach</text>
+        <text class="o5bL" x="574" y="182">daily and project notes</text>
+        <text class="o5bS" x="574" y="198">also depth 2: the noise</text>
+        <text class="o5bL" x="574" y="230">the open insight note</text>
+        <text class="o5bS" x="574" y="246">depth 0, the centre</text>
+        <text class="o5bS" x="556" y="292">Rung 4 bench, modelled, 2 steps out</text>
+        <text class="o5bV" x="556" y="314">23.0 notes · 66.6% precision</text>
+        <text class="o5bS" x="556" y="334">computed on a constructed vault</text>
+
+        <text class="o5bN" x="30" y="400">Depth 1: direct links, both ways. Depth 2: their links. Session 4 measured exactly this neighbourhood.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the amber map is what makes depth 2 useful; the daily note at depth 1 is what makes it noisy</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The depth slider is the bench, drawn<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Open the local graph for an insight note at depth 1 and you see its direct neighbours: the notes it links to and the notes that link to it. Move the slider to 2 and each of those neighbours brings its own neighbours in. That is the same two-hop walk the session 4 bench ran for twelve questions. On rung 4, with maps of content, it reached 23.0 notes on average within two steps, and 66.6% of what it reached was on the question's theme (modelled, computed on a constructed vault).</p>
+        <p>The figure shows why. A map at depth 1 is a door: one step further and the whole theme is on screen. A daily note at depth 1 is also a door, into everything else that happened that day. Depth 2 is worth reading precisely because it shows you which of your notes are doors to where. Depth 3 usually reaches most of a small vault, which tells you very little.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Filters and groups: deciding what to look at<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The help lists the graph's filters: <strong>Search files</strong> (show only notes matching a search), <strong>Tags</strong> and <strong>Attachments</strong> (show them as their own circles, or not), <strong>Existing files only</strong> (hide links to notes that do not exist yet) and <strong>Orphans</strong> ("notes without any links"). Groups paint every note matching a search term in a colour you choose, so <span class="mono">path:Insights</span> can be one colour and <span class="mono">path:Daily</span> another. The search operators are the ones from session 3.</p>
+        <p>Filters change what is drawn, not what exists. Hiding daily notes does not remove their links from the vault; it lets you see what the rest of the structure looks like without them. That comparison, with and without, is often the most informative thing the graph can show you.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why the local graph beats the global one for work<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Ines never asks "what does my whole vault look like?" while working. She asks "what else do I have on notification fatigue?" with one note open. The local graph answers the second question; the global graph answers the first. Pin the local graph to the sidebar and it follows whichever note is active, so every note you open shows its own neighbourhood. Treat the global graph as an occasional audit view, mainly for orphans and islands.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <p><strong>Read depth 2 from the outside in.</strong> Look at the ring of depth 2 notes first and ask which depth 1 note brought each one in. A map that brings in its theme is doing its job; a daily note that brings in twelve strangers is the reason your neighbourhood feels noisy.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers "the graph view is your second brain"</span>
+      <h2>A rounder graph can be a worse vault</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">The help says what the graph draws: notes and links. It does not say which links are relevant. Session 4's anti-lever, "link every mention of every term", made Ines's vault look perfect in every way a graph can draw and left the neighbourhood around each note mostly noise. Both camps in this disagreement are looking at the same picture; they are asking it different questions.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two graphs side by side. Left, rung 4 with 498 links: two hub notes with spokes and one orphan. Orphans 5, largest component 96.4 percent, recall 84.4 percent, notes reached 23.0, precision 66.6 percent. Right, the anti-lever with 1,488 links: a dense hairball where every note links to many others. Orphans 0, largest component 100 percent, recall 100 percent, notes reached 181.8, precision 9.1 percent. Both precision values are highlighted in amber. All numbers modelled on a constructed vault.">
+        <defs>
+          <filter id="o5cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="63" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="o5cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#6741C4" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="o5cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o5cH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o5cL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o5cS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o5cB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o5cV { font: 800 18px Inter, sans-serif; fill: #45288A; }
+          .o5cA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o5cN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o5cH" x="30" y="26">SAME VAULT, SAME QUESTIONS: THE PRETTIER GRAPH IS THE NOISIER ONE</text>
+
+        <g filter="url(#o5cSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="30" y="44" width="390" height="262" rx="10" transform="rotate(-0.4 225 175)" fill="#FFFFFF"/>
+          <rect x="460" y="44" width="390" height="262" rx="10" transform="rotate(0.4 655 175)" fill="#FEF2F2" stroke="#991B1B"/>
+
+          <path d="M130 140 L75 105 M130 140 L68 168 M130 140 L128 192 M130 140 L180 98 M130 140 L300 140 M300 140 L255 96 M300 140 L350 98 M300 140 L358 170 M300 140 L300 192" stroke-width="1.6"/>
+          <circle cx="130" cy="140" r="16" fill="#F5F1FD"/>
+          <circle cx="300" cy="140" r="14" fill="#F5F1FD"/>
+          <circle cx="75" cy="105" r="7" fill="#FFFFFF"/>
+          <circle cx="68" cy="168" r="7" fill="#FFFFFF"/>
+          <circle cx="128" cy="192" r="7" fill="#FFFFFF"/>
+          <circle cx="180" cy="98" r="7" fill="#FFFFFF"/>
+          <circle cx="255" cy="96" r="7" fill="#FFFFFF"/>
+          <circle cx="350" cy="98" r="7" fill="#FFFFFF"/>
+          <circle cx="358" cy="170" r="7" fill="#FFFFFF"/>
+          <circle cx="300" cy="192" r="7" fill="#FFFFFF"/>
+          <circle cx="396" cy="196" r="5" fill="#FFFFFF"/>
+
+          <path d="M500 95 L560 88 L630 100 L700 90 L780 98 M500 95 L520 150 L500 195 M560 88 L590 140 L575 192 M630 100 L660 155 L650 198 M700 90 L735 145 L720 195 M780 98 L805 150 L800 192 M500 95 L660 155 M560 88 L735 145 M630 100 L520 150 M700 90 L590 140 M780 98 L660 155 M520 150 L805 150 M590 140 L720 195 M660 155 L500 195 M735 145 L575 192 M805 150 L650 198 M500 195 L800 192 M560 88 L800 192 M780 98 L500 195 M630 100 L720 195 M700 90 L575 192" stroke="#991B1B" stroke-width="1.2"/>
+          <circle cx="500" cy="95" r="8" fill="#FFFFFF" stroke="#991B1B"/>
+          <circle cx="560" cy="88" r="8" fill="#FFFFFF" stroke="#991B1B"/>
+          <circle cx="630" cy="100" r="8" fill="#FFFFFF" stroke="#991B1B"/>
+          <circle cx="700" cy="90" r="8" fill="#FFFFFF" stroke="#991B1B"/>
+          <circle cx="780" cy="98" r="8" fill="#FFFFFF" stroke="#991B1B"/>
+          <circle cx="520" cy="150" r="8" fill="#FFFFFF" stroke="#991B1B"/>
+          <circle cx="590" cy="140" r="8" fill="#FFFFFF" stroke="#991B1B"/>
+          <circle cx="660" cy="155" r="8" fill="#FFFFFF" stroke="#991B1B"/>
+          <circle cx="735" cy="145" r="8" fill="#FFFFFF" stroke="#991B1B"/>
+          <circle cx="805" cy="150" r="8" fill="#FFFFFF" stroke="#991B1B"/>
+          <circle cx="500" cy="195" r="8" fill="#FFFFFF" stroke="#991B1B"/>
+          <circle cx="575" cy="192" r="8" fill="#FFFFFF" stroke="#991B1B"/>
+          <circle cx="650" cy="198" r="8" fill="#FFFFFF" stroke="#991B1B"/>
+          <circle cx="720" cy="195" r="8" fill="#FFFFFF" stroke="#991B1B"/>
+          <circle cx="800" cy="192" r="8" fill="#FFFFFF" stroke="#991B1B"/>
+
+          <rect x="46" y="254" width="358" height="38" rx="8" transform="rotate(-0.6 225 273)" fill="#FDF3E3" stroke="#A15C07"/>
+          <rect x="476" y="254" width="358" height="38" rx="8" transform="rotate(0.6 655 273)" fill="#FDF3E3" stroke="#A15C07"/>
+        </g>
+
+        <text class="o5cH" x="48" y="68">RUNG 4 · 498 LINKS, WITH HUBS</text>
+        <text class="o5cH" x="478" y="68">ANTI-LEVER · 1,488 LINKS</text>
+        <text class="o5cL" x="48" y="226">orphans 5 · largest component 96.4%</text>
+        <text class="o5cL" x="48" y="244">recall 84.4% · notes reached 23.0</text>
+        <text class="o5cL" x="478" y="226">orphans 0 · largest component 100.0%</text>
+        <text class="o5cL" x="478" y="244">recall 100.0% · notes reached 181.8</text>
+        <text class="o5cB" x="62" y="278">precision</text>
+        <text class="o5cV" x="140" y="280">66.6%</text>
+        <text class="o5cB" x="492" y="278">precision</text>
+        <text class="o5cV" x="570" y="280">9.1%</text>
+
+        <text class="o5cN" x="30" y="330">Modelled on a constructed vault (session 4). The right graph wins every count a picture can show.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - zero orphans and one component on the right; the amber number says nine notes in ten on screen are off the question</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The anti-lever, read as a graph<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Session 4 linked every mention of every term across Ines's vault. On rung 4, links went from 498 to 1,488. Every count a graph can draw improved: orphans fell from 5 to 0, the largest connected component grew from 96.4% to 100.0%, and recall within two steps rose from 84.4% to 100.0%. Then the cost: the two-step neighbourhood grew from 23.0 notes to 181.8, nearly the whole vault, and precision fell from 66.6% to 9.1% (modelled, computed on a constructed vault). Roughly nine in ten of the notes around any note were off its theme.</p>
+        <p>As a picture, the anti-lever graph is the one people screenshot: dense, round, no stragglers. As a tool for thinking, it is the one where depth 2 shows you everything and therefore tells you nothing. A denser, rounder graph can be a worse vault, and nothing in the picture warns you.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>An orphan is a question, not a defect<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The Orphans filter shows "notes without any links". The anti-lever drove that count to zero and made the vault worse, so zero orphans is not a target. Treat each orphan as a question with three honest answers. <strong>Link it up</strong> if it belongs to a theme, usually by adding it to that theme's map. <strong>Merge it</strong> if it repeats a note you already have. <strong>Leave it</strong> if it is a stray thought that has not found its place yet; Luhmann himself wrote that "some things will get lost".</p>
+        <p>On rung 4, Ines's one unanswered bench question started from an interview she never processed: it had no link up to its map. That is the orphan worth finding. The note she jotted about a conference coffee queue is not.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What a graph can show: hubs and islands<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Johannes Schmidt, who coordinates the research project on Luhmann's card index, describes two features of the real archive (Schmidt 2018, read at source). <strong>Hubs</strong> are cards with an above-average number of links that give access to large parts of the file. <strong>Black holes</strong> are poorly linked parts that "tend to remain isolated later on and hence fade away"; some parts seemed untouched since they were written. A graph view is good at showing exactly these two things: the crossroads, as big circles, and the islands, as small clusters or single dots off on their own.</p>
+        <p>That is the honest use. The graph can point at where your structure is thin or where everything routes through one note. It cannot tell you whether the links are any good. Andy Matuschak warns that most people end up, after a year, with "a pile of dissociated notes" (read at source); a graph full of links can hide the same pile if the links do not say why two notes belong together.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The disagreement, as it stands<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>For "the graph is your second brain":</strong> it is the only view that shows the whole network at once, and it makes isolated notes and over-loaded hubs visible at a glance, which no list of files can. <strong>Against:</strong> the help says it draws notes and links and nothing about relevance; the bench shows a vault can reach 0 orphans and one component while a two-step neighbourhood is mostly noise; and position, the most striking feature of the picture, comes from forces you can retune.</p>
+        <p>No controlled study was found showing that graph views, or linked notes in general, improve retrieval or learning. That leaves the question open, not settled either way. What you can do is measure your own vault, as the build-along below does.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The graph screenshot as a progress report.</strong> A familiar pattern in note-taking communities: someone posts their graph after a year, a glowing nebula of thousands of dots, and the replies admire how much they have built. The picture shows how many notes and links exist. It cannot show whether any question gets answered faster than it did a year ago, and the person posting usually knows the answer to that better than the graph does.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Read one local graph, then audit the whole</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">Work in your own vault. Ines's notes are the worked example: her insight note "Drop-off clusters at the first form that asks for an ID number", her folders Clients/Corvid/Interviews, Reading, Insights, Daily and Admin, and a map called "Notification fatigue (map)". The graph view is a core plugin, so nothing needs installing, and no community plugin is needed for any step. Counts from your vault will be your own: your numbers will differ.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 332" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A six-item checklist for reading a graph: open the local graph for one insight at depth 1 then 2; turn on orphans and list five; make groups by search term for insights and daily notes; filter out daily notes and see what the noise was; check whether the biggest node is a map or a daily note, highlighted in amber; write the finding in three sentences. Beside it, a sketch of the local graph panel with violet insight nodes, grey daily nodes and a depth slider set to 2.">
+        <defs>
+          <filter id="o5dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="69" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="o5dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#6741C4" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="o5dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o5dH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o5dL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o5dS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o5dB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o5dA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o5dN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o5dH" x="30" y="26">A LOCAL GRAPH READING CHECKLIST</text>
+
+        <g filter="url(#o5dSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="44" width="520" height="254" rx="10" transform="rotate(-0.3 300 171)" fill="#FFFFFF"/>
+          <rect x="52" y="222" width="496" height="28" rx="6" transform="rotate(0.3 300 236)" fill="#FDF3E3" stroke="#A15C07"/>
+          <rect x="62" y="84" width="16" height="16" rx="3" transform="rotate(-3 70 92)" fill="#FFFFFF"/>
+          <rect x="62" y="120" width="16" height="16" rx="3" transform="rotate(2 70 128)" fill="#FFFFFF"/>
+          <rect x="62" y="156" width="16" height="16" rx="3" transform="rotate(-2 70 164)" fill="#FFFFFF"/>
+          <rect x="62" y="192" width="16" height="16" rx="3" transform="rotate(3 70 200)" fill="#FFFFFF"/>
+          <rect x="62" y="228" width="16" height="16" rx="3" transform="rotate(-2 70 236)" fill="#FFFFFF"/>
+          <rect x="62" y="264" width="16" height="16" rx="3" transform="rotate(2 70 272)" fill="#FFFFFF"/>
+
+          <rect x="590" y="44" width="250" height="254" rx="10" transform="rotate(0.5 715 171)" fill="#F5F1FD"/>
+          <path d="M715 150 L665 115 M715 150 L770 112 M715 150 L660 190 M715 150 L770 190 M715 150 L805 150" stroke-width="1.6"/>
+          <circle cx="715" cy="150" r="10" fill="#FFFFFF"/>
+          <circle cx="665" cy="115" r="7" fill="#DCD2F4"/>
+          <circle cx="770" cy="112" r="7" fill="#DCD2F4"/>
+          <circle cx="660" cy="190" r="7" fill="#DCD2F4"/>
+          <circle cx="770" cy="190" r="7" fill="#D4D2DE"/>
+          <circle cx="805" cy="150" r="7" fill="#D4D2DE"/>
+          <path d="M620 252 L810 252" stroke-width="1.8"/>
+          <path d="M620 246 L620 258 M667 246 L667 258 M715 246 L715 258 M762 246 L762 258 M810 246 L810 258" stroke-width="1.4"/>
+          <circle cx="667" cy="252" r="8" fill="#6741C4"/>
+        </g>
+
+        <text class="o5dA" x="60" y="70">IN YOUR OWN VAULT</text>
+        <text class="o5dL" x="90" y="97">1 · Local graph for one insight: depth 1, then depth 2</text>
+        <text class="o5dL" x="90" y="133">2 · Global graph, Orphans on: list five orphans</text>
+        <text class="o5dL" x="90" y="169">3 · Groups by search term: path:Insights, path:Daily</text>
+        <text class="o5dL" x="90" y="205">4 · Filter with -path:Daily: what was the noise?</text>
+        <text class="o5dB" x="90" y="241">5 · Biggest node: a map, or a daily note?</text>
+        <text class="o5dL" x="90" y="277">6 · Write the finding in three sentences</text>
+
+        <text class="o5dA" x="606" y="70">LOCAL GRAPH · depth 2</text>
+        <text class="o5dS" x="606" y="86">violet insights, grey daily notes</text>
+        <text class="o5dS" x="606" y="230">depth slider</text>
+        <text class="o5dS" x="620" y="276" text-anchor="middle">1</text>
+        <text class="o5dS" x="667" y="276" text-anchor="middle">2</text>
+        <text class="o5dS" x="715" y="276" text-anchor="middle">3</text>
+        <text class="o5dS" x="762" y="276" text-anchor="middle">4</text>
+        <text class="o5dS" x="810" y="276" text-anchor="middle">5</text>
+
+        <text class="o5dN" x="30" y="322">Colours in the sketch are illustrative; on screen you pick your own group colours.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - six reads in order; the amber one decides whether your biggest circle is a door to a theme or a door to a diary</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Open the local graph for one insight note.</strong> Pick an insight note you know well and open its local graph (in the command palette, search for "local graph"; check the current help if the command name has moved). Set depth to 1 and write down what you see, then move it to 2.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · Ines's insight note, depth 1 then 2</span>Open note   Drop-off clusters at the first form that asks for an ID number
+Depth 1     the interviews that cite it, the reading note, its map
+Depth 2     the map brings in the rest of its theme
+            the interviews bring in their daily notes
+Write down  how many notes at each depth (your numbers will differ)</div>
+      </div>
+      <div class="step">
+        <p><strong>Turn on Orphans in the global graph and list five.</strong> Open the global graph, open its filters, and make sure Orphans is switched on so notes without any links are drawn. Hover the loose dots and list five. Next to each, write one of three decisions.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · five orphans, five decisions</span>Orphan                                  Decision
+2026-09-22 Brightwell interview P04     link up: add to its theme's map
+Onboarding checklist idea               merge: repeats an insight note
+Conference coffee queue                 leave: a stray thought
+...                                     ...
+(constructed examples; your orphans and count will differ)</div>
+      </div>
+      <div class="step">
+        <p><strong>Create groups by search term and quiet the extras.</strong> In the graph settings, add a group for insight notes and another for daily notes, and pick a colour for each on screen: a strong one for insights, a muted one for daily notes. Switch off Tags and Attachments in the filters so the picture shows notes and links only.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · groups and filters</span>Groups
+  path:Insights     a strong colour you pick
+  path:Daily        a muted colour you pick
+Filters
+  Tags              off
+  Attachments       off
+  Orphans           on</div>
+      </div>
+      <div class="step">
+        <p><strong>Filter out the suspected noise and compare.</strong> Type a search term into the graph's Search files filter that excludes the daily notes. Watch what disappears. If a cluster dissolves, it was being held together by daily notes, not by ideas. Search syntax changes now and then, so check the current help if the minus sign does not exclude as expected.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · Search files filter</span>-path:Daily
+
+Before   one dense knot around a client note
+After    the knot thins out; the theme maps stand clear
+(what you see will differ: note what vanished)</div>
+      </div>
+      <div class="step">
+        <p><strong>Read node size honestly.</strong> Clear the filter. Find the biggest circle and hover it. Then open that note's backlinks panel from session 1 and look at where the links come from.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · whose links made it big?</span>Biggest node        ____________________
+Kind of note        map / insight / client / daily / other
+Most links from     insight notes / interviews / daily notes
+Verdict             a door to a theme, or a name everyone mentions?</div>
+      </div>
+      <div class="step">
+        <p><strong>Write the finding as three sentences.</strong> One sentence on what the local graph showed at depth 2, one on what the orphans were, one on what made the biggest node big. Put it in a note in your vault so you can compare next month.</p>
+        <div class="prompt-box good"><span class="label">★ Step 6 · the finding, Ines's version (constructed)</span>At depth 2 my insight note reaches its whole theme through the map, plus
+every note from the two days I wrote the interviews.
+Of five orphans, one was an unprocessed interview that belonged in a map;
+the other four can wait.
+My biggest node is the Corvid client note, made big by daily notes, not ideas.
+(your numbers and your notes will differ)</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Save the settings as a view you trust.</strong> Once your groups and filters show insights clearly and daily notes quietly, keep them. A graph you read the same way each month is comparable; a graph you retune every time only ever shows today's layout.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before session 6</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Pin the local graph to the sidebar</strong> for a week, set at depth 2, and note twice when it showed you a note you had forgotten about.</li>
+      <li><strong>Act on your five orphans</strong> from step 2: link up the ones that belong, merge the repeats, and leave the rest with a one-line reason.</li>
+      <li><strong>Find one island</strong>: a small cluster that never connects to a map. Decide whether it is a theme that needs a map or a side topic that is fine on its own.</li>
+      <li><strong>Change one force</strong> (repel or link distance) as far as it goes, screenshot before and after, and write one sentence on what changed in the picture and what changed in the vault.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 5 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · In Ines's graph one circle is much bigger than the rest. What does that tell her?</p>
+      <button class="qopt" type="button">A · It is her most important idea</button>
+      <button class="qopt" type="button">B · It is the longest note in the vault</button>
+      <button class="qopt" type="button">C · More notes link to it than to the others</button>
+      <button class="qopt" type="button">D · It was created first, so the layout put it in the middle</button>
+      <p class="qwhy">The help says more referencing notes make a node bigger. Size is a count of links in, not a judgement of importance: a client note mentioned in every daily note can be the biggest circle in the vault.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · After linking every mention of every term, Ines's vault has 0 orphans and one connected component. Why is that not proof of a good vault?</p>
+      <button class="qopt" type="button">A · The two-step neighbourhood became mostly noise: precision fell to 9.1% (modelled)</button>
+      <button class="qopt" type="button">B · Obsidian stops drawing the graph above 1,000 links</button>
+      <button class="qopt" type="button">C · Recall dropped below the 75% answered line</button>
+      <button class="qopt" type="button">D · Orphans are required for the metadata cache to work</button>
+      <p class="qwhy">On the session 4 bench the anti-lever raised recall to 100.0% and reached 181.8 notes in two steps, but only 9.1% of them were on the question's theme, against 66.6% on rung 4 (modelled, computed on a constructed vault). A rounder graph drew more links, not better ones.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · What does the local graph show at depth 2?</p>
+      <button class="qopt" type="button">A · Every note in the vault, coloured by folder</button>
+      <button class="qopt" type="button">B · Only the notes the active note links to, two per row</button>
+      <button class="qopt" type="button">C · Notes created in the last two days</button>
+      <button class="qopt" type="button">D · The active note's direct neighbours, plus the notes connected to those neighbours</button>
+      <p class="qwhy">Each level of depth shows notes connected to the notes revealed at the previous depth. Depth 1 is the direct neighbours, both directions; depth 2 adds their neighbours, the same two-hop walk the session 4 bench measured.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Obsidian Help: Graph view</span><span class="note">Circles are notes, lines are internal links, size by referencing notes, filters including Orphans, groups, forces, time-lapse, local graph and depth; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Obsidian Help: How Obsidian stores data</span><span class="note">The metadata cache that powers the graph view; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Johannes F.K. Schmidt (2018), "Niklas Luhmann's Card Index: The Fabrication of Serendipity", Sociologica 12(1): 53-60</span><span class="note">Hubs and poorly linked parts that fade; read at source, used for what a graph can show</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Andy Matuschak, public working notes</span><span class="note">Most people take only transient notes, a pile after a year; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The link bench</span><span class="note">Rung 4 and the anti-lever, two-hop recall, precision, orphans and components; computed on a constructed vault, modelled</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Ines and her vault</span><span class="note">Constructed; the help pages were read in October 2026 and graph settings move between releases, so check the current help</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 5 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>What is drawn</b><span>Circles are notes, lines are internal links. Nothing else is data.</span></div>
+      <div class="cheat-item"><b>Node size</b><span>More notes linking in. A count, not importance: check where the links come from.</span></div>
+      <div class="cheat-item"><b>Position</b><span>Forces only: center, repel, link force, link distance. Retune them and the shape changes.</span></div>
+      <div class="cheat-item"><b>Local graph, depth 2</b><span>Neighbours plus their neighbours: the bench's two-hop walk. Rung 4: 23.0 notes, 66.6% precision.</span></div>
+      <div class="cheat-item"><b>Orphans</b><span>Notes without any links. A question: link up, merge, or leave. Zero is not a target.</span></div>
+      <div class="cheat-item"><b>Rounder is not better</b><span>Anti-lever: 0 orphans, 100.0% recall, 9.1% precision. No controlled study was found either way.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Next session</span>
+    <p>A graph you can read is a vault you can maintain. Session 6 grows the vault without losing the thread: renaming safely inside Obsidian, the link settings that protect you, a monthly sweep of unlinked mentions and orphans, merging and splitting notes, and how to keep the folder yours whatever you sync it with.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 5 of 6 · learn-obsidian-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="04-the-link-bench.html">← Prev: The link bench</a> &nbsp;·&nbsp; <a href="06-growing-the-vault-without-losing-the-thread.html">Next: Growing the vault without losing the thread →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=2"></script>
+</body>
+</html>

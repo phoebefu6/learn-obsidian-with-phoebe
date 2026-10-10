@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Session 6 of 6. A vault that grows needs three habits: rename only inside Obsidian, run a short monthly maintenance pass, and keep the bottom layer, a folder of plain Markdown files, so you can leave any time.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Growing the vault without losing the thread - learn obsidian with phoebe">
+<meta property="og:description" content="Session 6 of 6. Safe renaming, a monthly maintenance pass, core plugins, and the local-first exit.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-obsidian-with-phoebe/courses/06-growing-the-vault-without-losing-the-thread.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-obsidian-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Growing the vault without losing the thread - learn obsidian with phoebe">
+<meta name="twitter:description" content="Session 6 of 6. Safe renaming, a monthly maintenance pass, and the local-first exit.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-obsidian-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Session 6 · Growing the vault without losing the thread - learn obsidian with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-obsidian-with-phoebe</a> / Session 6 of 6</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Obsidian with Phoebe · Session 6 of 6</div>
+    <h1>Growing the vault without losing the <span class="accent">thread</span></h1>
+    <p class="sub">A linked vault is easy to break and easy to keep. Tonight covers the three habits that decide which: rename notes only where Obsidian can see you do it, run a short maintenance pass once a month so new notes join the network instead of fading out of it, and grow with core plugins while keeping the one layer that lets you walk away, a folder of plain Markdown files. Ines, our constructed researcher, does her first monthly pass at the end.</p>
+    <div class="chip-row">
+      <span class="chip level">🔴 Advanced</span>
+      <span class="chip audience">Anyone whose vault is growing</span>
+      <span class="chip audience">Obsidian installed, free</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-18 · Rename, sweep, grow</span>
+      <span class="a3" style="flex:5">18-40 · Build-along: the monthly pass</span>
+      <span class="a4" style="flex:1">40-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where we start</h2>
+    </div>
+    <p class="lede">Ines is constructed: an invented freelance user-research consultant with four active clients (Aldermoor Care, Brightwell Mutual, Dunmore District Council and Corvid Studio) and a part-time contractor, Theo. Over five sessions her vault gained interview notes, reading notes, insight notes titled as claims, and maps of content that pull each theme together. Session 4 measured what that structure buys on a constructed vault of 192 notes. Tonight is about the year after: what quietly breaks a linked vault as it grows, and the small habits that stop it.</p>
+
+    <div class="legend">
+      <span class="pill">🎫 Clear all three quiz questions to stamp your passport</span>
+      <span class="pill">Live = presented in the 45 minutes</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">★ Build-along = do it in your own vault</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with tonight.</strong> Your Files and links settings checked and understood, one rename done the safe way, one unresolved link fixed, an orphans list with a decision next to every name, two near-duplicate notes merged, and a short "Vault conventions" note that tells future you how this vault works. Underneath it, one idea: a wikilink is a name, so anything that changes a name without telling Obsidian breaks the thread.</p>
+    </div>
+
+    <p><strong>Neighbours on the shelf.</strong> How often to review notes in any tool, and the capture and filing habits around it, are <a href="https://phoebefu6.github.io/learn-pkm-with-phoebe/">PKM ↗</a>. Markdown syntax itself is <a href="https://phoebefu6.github.io/learn-markdown-with-phoebe/">Markdown ↗</a>. Keeping a linked vault intact as it grows is the subject here.</p>
+  </section>
+
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers renaming safely</span>
+      <h2>A link is a name, so rename where Obsidian can see</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">A wikilink like <span class="mono">[[Notification fatigue]]</span> points at a note by its name, which is its file name on disk. Rename the note inside Obsidian and every link to it is rewritten for you. Rename the same file in Finder, another editor or a sync script, and nothing is rewritten: every link now points at a name that no longer exists.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 388" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A decision tree for renaming a note. Inside Obsidian, with F2 or the title: with the automatic update setting on, every link is updated; with it off, Obsidian asks first. Outside Obsidian, in Finder, another editor or a sync script: every link to the old name now points at a missing note; it still renders, and a click makes an empty note. The fix, highlighted in amber, is to rename it back or redo the rename inside Obsidian. Modelled on a constructed vault, 20 outside renames broke 72 links on rung 4 and 51 on rung 3.">
+        <defs>
+          <filter id="o6aSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="61" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="o6aHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#6741C4" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="o6aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o6aH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o6aL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o6aS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o6aB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o6aA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o6aN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o6aH" x="30" y="26">WHERE YOU RENAME DECIDES WHETHER THE LINKS SURVIVE</text>
+
+        <g filter="url(#o6aSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="320" y="46" width="240" height="46" rx="10" transform="rotate(-0.6 440 69)" fill="#F5F1FD"/>
+          <rect x="60" y="136" width="340" height="52" rx="10" transform="rotate(0.5 230 162)" fill="#FFFFFF"/>
+          <rect x="480" y="136" width="360" height="52" rx="10" transform="rotate(-0.5 660 162)" fill="#FFFFFF"/>
+          <rect x="50" y="226" width="170" height="60" rx="8" transform="rotate(-1.5 135 256)" fill="#F5F1FD"/>
+          <rect x="240" y="226" width="170" height="60" rx="8" transform="rotate(1.2 325 256)" fill="#FFFFFF"/>
+          <rect x="480" y="222" width="360" height="50" rx="8" transform="rotate(0.4 660 247)" fill="#FEF2F2" stroke="#991B1B"/>
+          <rect x="500" y="300" width="340" height="48" rx="8" transform="rotate(-0.8 670 324)" fill="#FDF3E3" stroke="#A15C07"/>
+          <path d="M360 96 C320 110 280 120 246 132" marker-end="url(#o6aAr)"/>
+          <path d="M520 96 C560 110 600 120 634 132" marker-end="url(#o6aAr)"/>
+          <path d="M160 192 L138 222" marker-end="url(#o6aAr)"/>
+          <path d="M300 192 L322 222" marker-end="url(#o6aAr)"/>
+          <path d="M660 192 L660 218" marker-end="url(#o6aAr)"/>
+          <path d="M670 276 L670 296" marker-end="url(#o6aAr)"/>
+        </g>
+
+        <text class="o6aL" x="440" y="74" text-anchor="middle">You rename a note. Where?</text>
+        <text class="o6aA" x="78" y="158">INSIDE OBSIDIAN</text>
+        <text class="o6aS" x="78" y="176">F2, or click the title and type</text>
+        <text class="o6aA" x="498" y="158">OUTSIDE OBSIDIAN</text>
+        <text class="o6aS" x="498" y="176">Finder, another editor, a sync script</text>
+        <text class="o6aA" x="64" y="250">SETTING ON (DEFAULT)</text>
+        <text class="o6aL" x="64" y="270">every link updated</text>
+        <text class="o6aA" x="254" y="250">SETTING OFF</text>
+        <text class="o6aL" x="254" y="270">Obsidian asks first</text>
+        <text class="o6aL" x="496" y="242">Every [[old name]] points at a missing note</text>
+        <text class="o6aS" x="496" y="260">it still renders; a click makes an empty note</text>
+        <text class="o6aB" x="518" y="320">FIX · rename it back</text>
+        <text class="o6aL" x="518" y="338">or redo the rename inside Obsidian</text>
+
+        <text class="o6aN" x="30" y="372">Modelled on a constructed vault: 20 outside renames broke 72 links on rung 4 and 51 on rung 3.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - inside Obsidian a rename carries its links with it; outside, every link keeps the old name, and the amber box is the only repair</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Rename inside Obsidian, and read the one setting<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The help is direct: renaming a note inside Obsidian, with F2 or by editing the title, updates all links to it. The behaviour sits under Settings, Files and links, in a toggle called <strong>Automatically update internal links</strong>. The help's own description: "When enabled, Obsidian automatically updates internal links when you rename a file. Turn this off to be prompted to update links after renaming."</p>
+        <p>Note what "off" means. It does not silently break links; it asks you. Some people prefer the prompt because it shows how many notes a rename touches before it happens. Either way, the rename happens where Obsidian can see it, so the links come along.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What an outside rename costs, modelled<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Session 4's bench, computed on a constructed vault, renamed 20 notes outside Obsidian (four Brightwell interviews, a Corvid findings readout, five reading notes and ten insight notes) and updated no links. On rung 4, idea links plus maps of content, <strong>72 links broke</strong>. Mean recall fell from 84.4% to 80.1%, questions answered fell from 11 to 10, and "interviewer bias" dropped from 90.0% to 70.0%, below the 75% line, so it now fails. On rung 3, idea links without maps, 51 links broke and recall fell from 11.5% to 6.5%.</p>
+        <p>Rungs 1 and 2, folders only and tags only, lost nothing: zero broken links, because folders and tags do not care what a note is called. That is the trade in one line. Links buy reach and cost you a duty of care about names. All of these numbers are modelled on Ines's constructed vault; a real vault will differ.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Unresolved links, and the graph filter that shows them<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A link to a note that does not exist is not an error in Obsidian. It still renders, and clicking it creates the note, which is useful when you are planning and a trap after an outside rename: the click makes a fresh empty note under the old name, and now you have two. Fix the link instead: rename the file back, or edit the link to the new name.</p>
+        <p>To find them, open the graph view and look at the filter called <strong>Existing files only</strong>. It shows or hides links to notes that do not exist, so switching it off puts the dangling names on the canvas where you can see them. Check the current help for its exact position; the panels change between releases.</p>
+        <p>One more setting in the same place: <strong>New link format</strong>, with Shortest path when possible, Relative path to file, and Absolute path in vault. Shortest path keeps links readable. Absolute or relative paths spell out the folder, which some people want for tools outside Obsidian, at the cost of links that mention folders you may later move.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The tidy-up that ran in the background.</strong> A familiar pattern: someone keeps their vault in a synced folder and, one weekend, runs a bulk renaming tool over it to standardise dates in file names. Every file looks neater in Finder on Monday, and dozens of links across the vault now point at names that no longer exist. Nothing warned them, because nothing that knew about the links was asked.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers maintenance as a habit</span>
+      <h2>A monthly pass keeps new notes in the network</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Luhmann did not pretend his slip box ran itself. In his own essay he writes that it "needs a number of years in order to reach critical mass", that until then it functions as "a mere container", and, plainly, that "Some things will get lost". A linked vault has the same failure: notes that never join the network stop being found.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 312" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A monthly loop of four stations, clockwise. One, orphans: graph view with the Orphans filter on; Ines has 5 notes with no links. Two, unlinked mentions: open each map and sweep the list; 12 candidates, 7 linked. Three, merge or split with the Note composer core plugin; 1 merge, 1 split. Four, highlighted in amber, link up to a map: every new note gets one up-link; 9 new notes, 9 linked up. A calendar in the middle marks the loop as monthly. Counts are constructed; your numbers will differ.">
+        <defs>
+          <filter id="o6bSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="67" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="o6bHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#6741C4" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="o6bAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o6bH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o6bL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o6bS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o6bB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o6bA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o6bN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o6bH" x="30" y="26">THE MONTHLY PASS: FOUR STATIONS, ROUND AND ROUND</text>
+
+        <g filter="url(#o6bSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="60" y="56" width="280" height="70" rx="10" transform="rotate(-1 200 91)" fill="#FFFFFF"/>
+          <rect x="540" y="56" width="280" height="70" rx="10" transform="rotate(1 680 91)" fill="#FFFFFF"/>
+          <rect x="540" y="196" width="280" height="70" rx="10" transform="rotate(-0.8 680 231)" fill="#FFFFFF"/>
+          <rect x="60" y="196" width="280" height="70" rx="10" transform="rotate(0.8 200 231)" fill="#FDF3E3" stroke="#A15C07"/>
+          <rect x="400" y="128" width="80" height="68" rx="6" transform="rotate(-2 440 162)" fill="#F5F1FD"/>
+          <path d="M402 146 L478 146"/>
+          <path d="M420 120 L420 134 M460 120 L460 134"/>
+          <path d="M344 90 L536 90" marker-end="url(#o6bAr)"/>
+          <path d="M680 130 L680 192" marker-end="url(#o6bAr)"/>
+          <path d="M536 232 L344 232" marker-end="url(#o6bAr)"/>
+          <path d="M200 192 L200 130" marker-end="url(#o6bAr)"/>
+        </g>
+
+        <text class="o6bA" x="78" y="80">1 · ORPHANS</text>
+        <text class="o6bL" x="78" y="98">Graph view, Orphans filter on</text>
+        <text class="o6bS" x="78" y="115">Ines: 5 notes with no links</text>
+        <text class="o6bA" x="558" y="80">2 · UNLINKED MENTIONS</text>
+        <text class="o6bL" x="558" y="98">Open each map, sweep the list</text>
+        <text class="o6bS" x="558" y="115">Ines: 12 candidates, 7 linked</text>
+        <text class="o6bA" x="558" y="220">3 · MERGE OR SPLIT</text>
+        <text class="o6bL" x="558" y="238">Note composer, a core plugin</text>
+        <text class="o6bS" x="558" y="255">Ines: 1 merge, 1 split</text>
+        <text class="o6bB" x="78" y="220">4 · LINK UP TO A MAP</text>
+        <text class="o6bL" x="78" y="238">Every new note gets one up-link</text>
+        <text class="o6bS" x="78" y="255">Ines: 9 new notes, 9 linked up</text>
+        <text class="o6bA" x="440" y="176" text-anchor="middle">monthly</text>
+
+        <text class="o6bN" x="30" y="296">Constructed counts for Ines; your numbers will differ. Do the loop every month, in any order.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - three stations find the gaps; the amber one, linking each new note up to a map, is what keeps new notes reachable at all</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Why notes fade: Schmidt's black holes<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Johannes Schmidt, who coordinates the Bielefeld project on Luhmann's card index, describes two kinds of region in it. <strong>Hubs</strong> are cards with an above-average number of links that give access to large parts of the file. <strong>Black holes</strong> are poorly linked parts that "tend to remain isolated later on and hence fade away"; some parts seemed untouched since they were written.</p>
+        <p>Session 4 found the same shape in a constructed vault. On rung 4, the one question the vault could not answer, trust and credibility at 26.9% recall (modelled), failed because its starting interview was never processed: it had no up-link to the map. One missing link put a whole theme out of reach. Luhmann's account is a single self-reported case and the bench is constructed, so neither proves a monthly pass helps; both show how a note goes missing.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The four stations<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Orphans.</strong> The graph view's Orphans filter shows notes without any links. Each one gets a decision: link it, merge it into a better note, or leave it, because some notes are genuinely standalone.</p>
+        <p><strong>Unlinked mentions on your maps.</strong> Open each map of content and read its unlinked mentions, and do the same for your busiest insight notes. That is where the phrase you have been writing all month without brackets shows up.</p>
+        <p><strong>Merge or split.</strong> The <strong>Note composer</strong> core plugin merges two notes into one or splits one note into two. Two notes that say the same thing under different titles split their backlinks between them; merging gives the idea one address again.</p>
+        <p><strong>Link up to a map.</strong> Every note made this month gets at least one link up to a map of content. This is the station that matters most, because a new note with no up-link is a black hole on day one.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Monthly, weekly, or whenever: the cadence question<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>No controlled study was found on how often a linked vault should be maintained, so "monthly" here is a working default, not a finding. A vault that gains a few notes a week can live with a monthly pass; one that gains dozens may want the link-up station weekly. How a review rhythm fits into the rest of your week, across every tool you use, belongs to <a href="https://phoebefu6.github.io/learn-pkm-with-phoebe/">PKM ↗</a>.</p>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>The vault that grew for a year without a sweep.</strong> A familiar pattern: the first months are careful, every note linked, maps kept up. Then a busy season arrives, notes get written fast and filed nowhere, and a year later the vault holds hundreds of notes the owner half-remembers writing and cannot find. Nothing broke on any single day. Each unlinked note was a small debt, and the interest was paid in searches that came back empty.</p>
+    </div>
+  </section>
+
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers growing with core plugins and leaving freely</span>
+      <h2>Add on top, keep the bottom layer yours</h2>
+      <span class="tag concept">5 min live</span>
+    </div>
+    <p class="lede">Obsidian keeps adding: daily notes, templates, Canvas, Bases, the graph. Every one of them sits on top of a folder of plain Markdown files that any editor can open. Grow as far up the stack as you like; the bottom layer is what makes leaving possible, and knowing you can leave is what makes it safe to commit.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A stack of three layers. Top: Obsidian core plugins, the part that can change: daily notes, templates, Canvas, Bases, graph view, backlinks. Middle: files Obsidian writes in open or rebuildable form: the metadata cache, the .obsidian folder, .canvas files and .base views. Bottom, highlighted in amber: a folder of .md files, yours and portable, which any text editor opens. A bracket beside the bottom layer reads leave any time with the bottom layer alone. Block references are the one link type that will not work outside Obsidian.">
+        <defs>
+          <filter id="o6cSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="71" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="o6cHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#6741C4" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="o6cAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o6cH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o6cL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o6cS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o6cB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o6cA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o6cN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o6cH" x="30" y="26">WHAT YOU ADD, AND WHAT YOU CAN TAKE WITH YOU</text>
+
+        <g filter="url(#o6cSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="48" width="640" height="68" rx="10" transform="rotate(0.3 360 82)" fill="#F5F1FD"/>
+          <rect x="40" y="154" width="145" height="36" rx="18" transform="rotate(-2 112 172)" fill="#FFFFFF"/>
+          <rect x="205" y="154" width="145" height="36" rx="18" transform="rotate(1.5 277 172)" fill="#FFFFFF"/>
+          <rect x="370" y="154" width="145" height="36" rx="18" transform="rotate(-1 442 172)" fill="#FFFFFF"/>
+          <rect x="535" y="154" width="145" height="36" rx="18" transform="rotate(2 607 172)" fill="#FFFFFF"/>
+          <rect x="40" y="222" width="640" height="68" rx="10" transform="rotate(-0.3 360 256)" fill="#FDF3E3" stroke="#A15C07"/>
+          <path d="M700 222 L712 222 L712 290 L700 290"/>
+        </g>
+
+        <text class="o6cA" x="58" y="74">OBSIDIAN CORE PLUGINS · the part that can change</text>
+        <text class="o6cL" x="58" y="98">Daily notes · Templates · Canvas · Bases · Graph view · Backlinks</text>
+        <text class="o6cA" x="40" y="142">IN BETWEEN · files Obsidian writes in open or rebuildable form</text>
+        <text class="o6cL" x="112" y="177" text-anchor="middle">metadata cache</text>
+        <text class="o6cL" x="277" y="177" text-anchor="middle">.obsidian folder</text>
+        <text class="o6cL" x="442" y="177" text-anchor="middle">.canvas files</text>
+        <text class="o6cL" x="607" y="177" text-anchor="middle">.base views</text>
+        <text class="o6cB" x="58" y="248">A FOLDER OF .md FILES</text>
+        <text class="o6cL" x="58" y="270">yours and portable: any text editor opens every note</text>
+        <text class="o6cS" x="724" y="246">leave any time</text>
+        <text class="o6cS" x="724" y="262">with the bottom</text>
+        <text class="o6cS" x="724" y="278">layer alone</text>
+
+        <text class="o6cN" x="30" y="316">Block references ([[Note#^id]]) are the one link type that will not work outside Obsidian.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - everything above the amber layer is convenience; the amber layer is the vault, and it walks out the door with you</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Daily notes, templates and Canvas<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Daily notes</strong> creates a note named after today's date, YYYY-MM-DD by default, and can start it from a template. <strong>Templates</strong> fills in variables as it inserts: <span class="mono">{{title}}</span>, <span class="mono">{{date}}</span> (YYYY-MM-DD by default) and <span class="mono">{{time}}</span> (HH:mm), with Moment.js format strings if you want another shape. A daily note that links each new note up to a map makes station 4 of the monthly pass happen as you go.</p>
+        <p><strong>Canvas</strong> lays notes out on an open board and saves a <span class="mono">.canvas</span> file in the open JSON Canvas format, so even the board is a readable file. Canvas is for arranging notes you already have; radial mind maps drawn from a central topic are their own craft, in <a href="https://phoebefu6.github.io/learn-mind-mapping-with-phoebe/">Mind Mapping ↗</a>.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Bases, the .obsidian folder, and the cache<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Bases</strong>, a core plugin, gives database-like views of your notes; the data stays in the Markdown files and their properties, and a view is saved as a <span class="mono">.base</span> file. Session 3 introduced it. If what you need is a real database for clients, projects and invoices, that work lives in <a href="https://phoebefu6.github.io/learn-notion-with-phoebe/">Notion ↗</a>.</p>
+        <p>Each vault keeps its settings in a hidden <span class="mono">.obsidian</span> folder. As a vault grows, resist the urge to tuck a second vault inside it: the help recommends against vaults within vaults because links may not be updated correctly. And if the graph view or outline ever looks out of step with your files, the local metadata cache can be rebuilt under Settings, Files and links; it is rebuilt from the files, so nothing is lost.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Sync, licences, and the local-first exit<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Sync.</strong> Obsidian Sync is a paid service. You do not need it: a vault is a folder, so any folder sync works, and the help names iCloud, Dropbox, OneDrive and Git. Whichever you use, remember Part 1: a sync tool that renames files is renaming outside Obsidian.</p>
+        <p><strong>Licences.</strong> In the help's words, "Obsidian is free to use and is 100.0% user-supported. Organizations can choose to support Obsidian by purchasing Commercial licenses." Sync and Publish are the paid services.</p>
+        <p><strong>Leaving.</strong> Your vault is a folder of <span class="mono">.md</span> files, so the exit is copying a folder. What does not travel: block references such as <span class="mono">[[Note#^37066d]]</span>, which the help says won't work outside Obsidian, and anything that exists only as a plugin's view. Wikilinks travel as readable text, and many tools understand them; if a destination needs standard links, session 1 showed the setting that writes Markdown links instead. Going the other way, opening a single Markdown file from outside the vault needs Obsidian 1.14.</p>
+      </div>
+    </details>
+
+    <div class="callout tip">
+      <p><strong>Re-check before you rely on a menu name.</strong> The help pages behind this session were read in October 2026, when the latest release was 1.14.4. Obsidian ships changes often, so open the current help and changelog before teaching a setting to someone else or scripting against it.</p>
+    </div>
+  </section>
+
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along</span>
+      <h2>Ines's first monthly maintenance pass</h2>
+      <span class="tag demo">★ 22 min · everyone builds</span>
+    </div>
+    <p class="lede">Do the pass on your own vault, with Ines's constructed vault as the worked example. Her counts are placeholders to show the shape of the work; your numbers will differ, and that is the point of counting them.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 332" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ines's monthly pass as a before and after checklist, constructed. Orphans: 5 before, 1 after. Unresolved links to missing notes: 3 before, 0 after. Near-duplicate insight notes: 2 before, 1 after. New notes with no up-link to a map: 9 before, 0 after. Vault conventions note: none before, written after, highlighted in amber. One orphan stays because leaving it is a decision. Your numbers will differ.">
+        <defs>
+          <filter id="o6dSk" x="-3%" y="-3%" width="106%" height="106%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="73" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+          <pattern id="o6dHc" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-38)"><line x1="0" y1="0" x2="0" y2="7" stroke="#6741C4" stroke-width="1" opacity=".5"/></pattern>
+          <marker id="o6dAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#3A3A46" stroke-width="1.6" stroke-linecap="round"/></marker>
+        </defs>
+        <style>
+          .o6dH { font: 800 12px Inter, sans-serif; fill: #3A3A46; }
+          .o6dL { font: 600 12px Inter, sans-serif; fill: #3A3A46; }
+          .o6dS { font: 400 11px Inter, sans-serif; fill: #62616F; }
+          .o6dB { font: 800 11px Inter, sans-serif; fill: #6B3D04; }
+          .o6dV { font: 800 14px Inter, sans-serif; fill: #45288A; }
+          .o6dA { font: 700 11px Inter, sans-serif; fill: #6741C4; }
+          .o6dN { font: 400 12px Inter, sans-serif; fill: #62616F; }
+        </style>
+
+        <text class="o6dH" x="30" y="26">INES'S MONTHLY PASS, BEFORE AND AFTER (CONSTRUCTED)</text>
+
+        <g filter="url(#o6dSk)" fill="none" stroke="#3A3A46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="40" y="44" width="800" height="252" rx="12" transform="rotate(-0.2 440 170)" fill="#FFFFFF"/>
+          <path d="M60 82 L820 82 M60 122 L820 122 M60 162 L820 162 M60 202 L820 202 M60 240 L820 240" stroke="#D4D2DE" stroke-width="1.2"/>
+          <rect x="54" y="248" width="772" height="38" rx="8" transform="rotate(0.3 440 267)" fill="#FDF3E3" stroke="#A15C07"/>
+          <path d="M776 98 L782 104 L794 92"/>
+          <path d="M776 138 L782 144 L794 132"/>
+          <path d="M776 178 L782 184 L794 172"/>
+          <path d="M776 218 L782 224 L794 212"/>
+          <path d="M776 264 L782 270 L794 258"/>
+        </g>
+
+        <text class="o6dA" x="76" y="68">CHECK</text>
+        <text class="o6dA" x="600" y="68" text-anchor="middle">BEFORE</text>
+        <text class="o6dA" x="730" y="68" text-anchor="middle">AFTER</text>
+        <text class="o6dL" x="76" y="106">Orphans (graph view, Orphans filter)</text>
+        <text class="o6dS" x="600" y="106" text-anchor="middle">5</text>
+        <text class="o6dV" x="730" y="107" text-anchor="middle">1</text>
+        <text class="o6dL" x="76" y="146">Unresolved links to missing notes</text>
+        <text class="o6dS" x="600" y="146" text-anchor="middle">3</text>
+        <text class="o6dV" x="730" y="147" text-anchor="middle">0</text>
+        <text class="o6dL" x="76" y="186">Near-duplicate insight notes</text>
+        <text class="o6dS" x="600" y="186" text-anchor="middle">2</text>
+        <text class="o6dV" x="730" y="187" text-anchor="middle">1</text>
+        <text class="o6dL" x="76" y="226">New notes with no up-link to a map</text>
+        <text class="o6dS" x="600" y="226" text-anchor="middle">9</text>
+        <text class="o6dV" x="730" y="227" text-anchor="middle">0</text>
+        <text class="o6dB" x="76" y="272">Vault conventions note</text>
+        <text class="o6dS" x="600" y="272" text-anchor="middle">none</text>
+        <text class="o6dB" x="730" y="272" text-anchor="middle">written</text>
+
+        <text class="o6dN" x="30" y="318">Constructed counts; your numbers will differ. One orphan stays because leaving it is a decision.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - four counts go down, and the amber row is the one that makes next month's pass faster: the rules, written down once</figcaption>
+    </figure>
+
+    <div class="steps">
+      <div class="step">
+        <p><strong>Check your Files and links settings.</strong> Open Settings, then Files and links. Note what each of these is set to before you change anything; check the current help if a name has moved.</p>
+        <div class="prompt-box good"><span class="label">★ Step 1 · Settings &gt; Files and links</span>Automatically update internal links   On  (off = Obsidian prompts)
+New link format                      Shortest path when possible
+Default location for new notes       write yours down here: ________
+Use [[Wikilinks]]                    On  (the default)</div>
+      </div>
+      <div class="step">
+        <p><strong>Rename one note inside Obsidian and confirm the links moved.</strong> Ines's note "Notification fatigue" has grown into a claim, so she presses F2 and gives it a sentence title. Then she opens a note that linked to it.</p>
+        <div class="prompt-box good"><span class="label">★ Step 2 · the same line in 2026-09-15 Corvid interview P18</span>Before  ... muted the app on day two: [[Notification fatigue]].
+After   ... muted the app on day two: [[Notification fatigue makes people mute the app]].
+(rewritten by Obsidian; nobody opened P18 to edit it)</div>
+      </div>
+      <div class="step">
+        <p><strong>Find unresolved links and fix one.</strong> Open the graph view and switch off Existing files only so links to missing notes show up, or search your vault for a name you know was renamed outside Obsidian. Fix the link to point at the note that exists; do not click it, or Obsidian creates an empty note under the old name.</p>
+        <div class="prompt-box good"><span class="label">★ Step 3 · one dangling name, repaired</span>Found   [[Drop-off at ID step]]        (no such note: renamed in Finder last month)
+Fixed   [[Drop-off clusters at the first form that asks for an ID number]]
+Ines this month: 3 unresolved, 3 fixed  (constructed; your numbers will differ)</div>
+      </div>
+      <div class="step">
+        <p><strong>List your orphans and decide each one.</strong> Graph view, Filters, Orphans on. Write a decision next to every name: link it, merge it, or leave it on purpose.</p>
+        <div class="prompt-box good"><span class="label">★ Step 4 · Ines's orphans and her decisions</span>2026-09-22 Brightwell interview P07   link up to Trust and credibility (map)
+2026-10-01 Aldermoor interview P03    link up to Carers and proxies (map)
+People leave at the ID step           merge into the drop-off insight (step 5)
+Reading - consent banner audit        link to Notification fatigue makes people mute the app
+Theo onboarding checklist             leave: admin, standalone on purpose
+5 orphans, 1 left by decision  (constructed; your numbers will differ)</div>
+      </div>
+      <div class="step">
+        <p><strong>Merge two near-duplicate insights with Note composer.</strong> Open the weaker note, run Note composer from the command palette and choose to merge it into the stronger one (check the current help for the exact command wording). Then open the surviving note and read its backlinks: they now arrive at one address.</p>
+        <div class="prompt-box good"><span class="label">★ Step 5 · two notes, one idea, one address</span>Merge   People leave at the ID step
+into    Drop-off clusters at the first form that asks for an ID number
+
+After   one note, its backlinks from both, the duplicate gone
+Ines this month: 1 merge, 1 split  (constructed; your numbers will differ)</div>
+      </div>
+      <div class="step">
+        <p><strong>Write the vault conventions note.</strong> One short admin note that tells future you, or Theo, how this vault works. Link it from your top map so it is never an orphan itself.</p>
+        <div class="prompt-box good"><span class="label">★ Step 6 · Vault conventions.md</span>---
+tags:
+  - admin
+---
+Naming: insight notes are titled as the claim, in a full sentence.
+Interviews: YYYY-MM-DD &lt;Client&gt; interview P&lt;nn&gt;
+New notes go to: Inbox, then move or link up within the month.
+Link-up rule: every new note links up to at least one (map).
+Renaming: only inside Obsidian. Never in Finder, another editor or a sync script.
+Monthly pass: orphans, unlinked mentions on each map, merge or split, link up.
+Last pass: 2026-10-10</div>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>Time the pass.</strong> Write down how long tonight's pass took. Next month, do it again with the conventions note open and compare. A pass that keeps getting longer is telling you the link-up rule is slipping between passes.</p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Before you close the vault</h2>
+      <span class="tag exercise">30 min</span>
+    </div>
+    <ol>
+      <li><strong>Put the next monthly pass in your calendar</strong>, with a link to your vault conventions note in the event, and write tonight's counts in the note so next month has something to compare against.</li>
+      <li><strong>Audit anything that touches your vault folder from outside</strong>: sync clients, backup tools, scripts, a second editor. For each one, write down whether it can rename files. Anything that can is renaming outside Obsidian.</li>
+      <li><strong>Make one daily note template</strong> that includes a line for linking today's new notes up to a map, using <span class="mono">{{date}}</span> in the title or body, and use it for a week.</li>
+      <li><strong>Rehearse the exit.</strong> Copy your vault folder somewhere, open three notes in a plain text editor, and list what still reads well and what does not (block references, plugin-only views). You never have to leave; you should know you can.</li>
+    </ol>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+    <p>Clear all three and session 6 gets stamped in your passport.</p>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Ines renames a note in Finder while Obsidian is closed. What happens to the links that pointed at it?</p>
+      <button class="qopt" type="button">A · Obsidian notices the new name next time it opens and updates every link</button>
+      <button class="qopt" type="button">B · Obsidian asks whether to update the links when she reopens the vault</button>
+      <button class="qopt" type="button">C · They still use the old name, which no longer exists, so each one now points at a missing note</button>
+      <button class="qopt" type="button">D · The renamed note is removed from the vault until she renames it back</button>
+      <p class="qwhy">Only a rename made inside Obsidian rewrites links. An outside rename leaves every link on the old name; the link still renders and a click would create an empty note. Modelled on a constructed vault, 20 outside renames broke 72 links on rung 4.</p>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · What does turning off "Automatically update internal links" do?</p>
+      <button class="qopt" type="button">A · Obsidian prompts you to update links after you rename a file</button>
+      <button class="qopt" type="button">B · Renames inside Obsidian silently break every link</button>
+      <button class="qopt" type="button">C · Obsidian stops letting you rename notes</button>
+      <button class="qopt" type="button">D · Links switch from wikilinks to Markdown links</button>
+      <p class="qwhy">The help says: "Turn this off to be prompted to update links after renaming." Off means asked, not broken. Switching link format is a different setting, Use [[Wikilinks]].</p>
+    </div>
+
+    <div class="quiz-q" data-answer="3">
+      <p class="qtext">3 · What makes an Obsidian vault portable to other tools?</p>
+      <button class="qopt" type="button">A · Obsidian Sync, which exports the vault on request</button>
+      <button class="qopt" type="button">B · The .obsidian folder, which stores every link</button>
+      <button class="qopt" type="button">C · A commercial licence, which unlocks export</button>
+      <button class="qopt" type="button">D · It is a folder of plain .md files; only Obsidian-specific pieces such as block references stop working elsewhere</button>
+      <p class="qwhy">A vault is a folder of Markdown files on your disk, so leaving is copying a folder. Links live in the notes, not in .obsidian. Block references won't work outside Obsidian, which is the main thing to know before you depend on them.</p>
+    </div>
+
+    <p class="quiz-score"></p>
+  </section>
+
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Sources covered</span>
+      <h2>What this session teaches, and where it came from</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Obsidian Help: Manage notes</span><span class="note">Renaming inside Obsidian updates all links; opening a Markdown file from outside the vault needs 1.14; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Obsidian Help: Settings (Files and links)</span><span class="note">Automatically update internal links and its prompt when off, new link format options; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Obsidian Help: Internal links</span><span class="note">Links to missing notes create the note on click; block references won't work outside Obsidian; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Obsidian Help: How Obsidian stores data</span><span class="note">The .obsidian folder, no vaults within vaults, rebuilding the metadata cache; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Obsidian Help: Core plugins, Note composer, Canvas, Daily notes, Templates, Bases</span><span class="note">Merge and split, the JSON Canvas format, date-named daily notes, template variables, database-like views; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Obsidian Help: Commercial license</span><span class="note">Free to use, 100.0% user-supported, optional commercial licences; Sync and Publish paid; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Niklas Luhmann, "Communicating with Slip Boxes: An Empirical Account", trans. Manfred Kuehn</span><span class="note">Critical mass after years, "a mere container", "Some things will get lost"; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Johannes F.K. Schmidt (2018), "Niklas Luhmann's Card Index: The Fabrication of Serendipity", Sociologica 12(1): 53-60</span><span class="note">Hubs and black holes; read at source</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The link bench, rename break</span><span class="note">Computed on a constructed vault: 72 and 51 broken links, recall changes, folders and tags unaffected; every number modelled</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Ines and her monthly pass</span><span class="note">Constructed; every count on this page is a placeholder and your numbers will differ</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Re-verify the changelog: features change</span><span class="note">Help read 2026-10-09, latest release v1.14.4 (2026-10-05); check the current help before relying on a menu name</span></div>
+    </div>
+    <p class="mono" style="margin-top:14px">Every fact on this page, and its verification tier, is recorded in the course's source map.</p>
+  </section>
+
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 6 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>A link is a name</b><span>Rename inside Obsidian (F2 or the title) and links follow. Finder, editors and scripts update nothing.</span></div>
+      <div class="cheat-item"><b>The setting</b><span>Automatically update internal links: on updates for you, off prompts you. Neither breaks links.</span></div>
+      <div class="cheat-item"><b>Unresolved links</b><span>A link to a missing note still renders; clicking makes an empty note. Fix the link instead.</span></div>
+      <div class="cheat-item"><b>Monthly pass</b><span>Orphans, unlinked mentions on each map, merge or split with Note composer, link every new note up.</span></div>
+      <div class="cheat-item"><b>Grow on top</b><span>Daily notes, templates, Canvas (.canvas, JSON Canvas), Bases (.base). No vaults within vaults.</span></div>
+      <div class="cheat-item"><b>Leave any time</b><span>The vault is a folder of .md files. Block references are the part that stays behind.</span></div>
+    </div>
+  </section>
+
+  <div class="callout next">
+    <span class="nx-pill">Where next</span>
+    <p>That is the arc: a note that knows its neighbours, atomic notes with stable addresses, maps of content, the bench, an honest read of the graph, and a vault that survives its own growth. Go back to the <a href="../index.html">course home</a> for all six sessions, or browse the full shelf at <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a>. Two neighbours fit naturally next: <a href="https://phoebefu6.github.io/learn-pkm-with-phoebe/">PKM ↗</a> for capture and review rhythm across every tool, and <a href="https://phoebefu6.github.io/learn-reading-with-phoebe/">Reading ↗</a> for turning what you read into notes worth linking.</p>
+  </div>
+
+  <footer class="pagefoot">
+    <span>Session 6 of 6 · learn-obsidian-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span><a href="05-what-the-graph-view-is-telling-you.html">← Prev: What the graph view is (and is not) telling you</a> &nbsp;·&nbsp; <a href="../index.html">Course home →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=2"></script>
+</body>
+</html>
